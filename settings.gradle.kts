@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PeriodSinceBirth"
-include ':app'
+include(":app")
