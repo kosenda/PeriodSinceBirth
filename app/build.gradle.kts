@@ -102,6 +102,9 @@ dependencies {
 
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
+
+    // Truth
+    testImplementation("com.google.truth:truth:1.1.3")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {
