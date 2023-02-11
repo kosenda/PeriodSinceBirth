@@ -8,7 +8,7 @@ data class InputBirthdayState(
     val year: String,
     val month: String,
     val day: String,
-    val isChangeable: Boolean,
+    val isChangeable: Boolean = false,
 ) {
     fun isCheckOK(): Boolean {
         return try {
