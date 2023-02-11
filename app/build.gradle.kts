@@ -4,6 +4,8 @@ val ktlint: Configuration by configurations.creating
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -81,14 +83,22 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.3")
 
     // ktlint
-    ktlint("com.pinterest:ktlint:0.48.0") {
+    ktlint("com.pinterest:ktlint:0.48.2") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.EXTERNAL))
         }
     }
 
     // Material3
-    implementation("androidx.compose.material3:material3:1.1.0-alpha05")
+    implementation("androidx.compose.material3:material3:1.1.0-alpha06")
+
+    // Redux-Kotlin
+    implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.44.2")
+    kapt("com.google.dagger:hilt-compiler:2.44.2")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {
