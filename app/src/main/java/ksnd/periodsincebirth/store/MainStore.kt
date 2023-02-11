@@ -8,5 +8,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainStore @Inject constructor(
-    val store: Store<MainState>
-): ViewModel()
+    val store: Store<MainState>,
+) : ViewModel()

@@ -1,5 +1,6 @@
 package ksnd.periodsincebirth.ui.parts
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,7 +16,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomOutlinedTextField(
@@ -26,11 +26,11 @@ fun CustomOutlinedTextField(
 ) {
     val focusManager = LocalFocusManager.current
     OutlinedTextField(
-        modifier = modifier.padding(all = 16.dp),
+        modifier = modifier.padding(top = 8.dp).fillMaxWidth(),
         value = text,
         textStyle = MaterialTheme.typography.bodyLarge,
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            textColor = MaterialTheme.colorScheme.primary
+            textColor = MaterialTheme.colorScheme.primary,
         ),
         keyboardActions = KeyboardActions { focusManager.clearFocus() },
         keyboardOptions = KeyboardOptions(
@@ -42,8 +42,8 @@ fun CustomOutlinedTextField(
             Text(
                 text = labelText,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.tertiary,
             )
-        }
+        },
     )
 }

@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
             val mainStore: MainStore = hiltViewModel()
             PeriodSinceBirthTheme {
                 StoreProvider(
-                    store = mainStore.store
+                    store = mainStore.store,
                 ) {
                     MainScreen()
                 }
@@ -26,4 +26,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-

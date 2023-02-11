@@ -38,7 +38,7 @@ object StoreModule {
     fun provideInputBirthdayStore(): Store<InputBirthdayState> {
         return createStore(
             reducer = inputBirthdayReducer,
-            preloadedState = InputBirthdayState(year = "", month = "", day = "", false),
+            preloadedState = InputBirthdayState(year = "", month = "", day = ""),
         )
     }
 }

@@ -23,7 +23,7 @@ data class InputBirthdayState(
                 ZoneId.systemDefault(),
             )
             return when {
-                year.length == 4 && month.length in 1.. 2 && day.length in 1.. 2 -> true
+                year.length == 4 && month.length in 1..2 && day.length in 1..2 -> true
                 else -> false
             }
         } catch (e: Exception) {
