@@ -12,5 +12,6 @@ val inputBirthdayReducer: Reducer<InputBirthdayState> =
         is InputBirthdayAction.InputYear -> state.copy(year = action.year)
         is InputBirthdayAction.InputMonth -> state.copy(month = action.month)
         is InputBirthdayAction.InputDay -> state.copy(day = action.day)
+        is InputBirthdayAction.CheckInput -> state.copy(isChangeable = state.isCheckOK())
     }
 }

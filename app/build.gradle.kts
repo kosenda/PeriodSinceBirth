@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "ksnd.periodsincebirth"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "0.1"
@@ -99,6 +99,9 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44.2")
     kapt("com.google.dagger:hilt-compiler:2.44.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // Timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {

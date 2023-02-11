@@ -1,8 +1,8 @@
 package ksnd.periodsincebirth.state
 
-import java.util.Calendar
+import java.time.ZonedDateTime
 
 data class MainState(
-    val myBirthday: Calendar?,
+    val myBirthday: ZonedDateTime?,
     val showSettingDialog: Boolean,
 )
