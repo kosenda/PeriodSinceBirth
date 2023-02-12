@@ -5,6 +5,7 @@ import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.util.makeBirthday
 import org.reduxkotlin.Reducer
 import org.reduxkotlin.typedReducer
+import timber.log.Timber
 
 val inputBirthdayReducer: Reducer<InputBirthdayState> =
     typedReducer<InputBirthdayState, InputBirthdayAction> { state, action ->
@@ -14,6 +15,7 @@ val inputBirthdayReducer: Reducer<InputBirthdayState> =
             is InputBirthdayAction.InputDay -> state.copy(day = action.day)
             is InputBirthdayAction.CheckInput -> {
                 val birthday = makeBirthday(state.year, state.month, state.day)
+                Timber.i(birthday.toString())
                 state.copy(
                     birthday = birthday,
                     isChangeable = birthday != null)

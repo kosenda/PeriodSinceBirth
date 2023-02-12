@@ -4,11 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ksnd.periodsincebirth.state.MainState
 import ksnd.periodsincebirth.store.InputBirthdayStore
 import ksnd.periodsincebirth.ui.content.InputMyBirthdayContent
@@ -18,13 +16,10 @@ import org.reduxkotlin.compose.selectState
 import java.time.ZonedDateTime
 
 @Composable
-fun MainScreen(inputBirthdayStore: InputBirthdayStore = hiltViewModel()) {
-    val systemUiController = rememberSystemUiController()
-    val color = MaterialTheme.colorScheme.surface
-    SideEffect {
-        systemUiController.setStatusBarColor(color)
-        systemUiController.setNavigationBarColor(color)
-    }
+fun MainScreen(
+    inputBirthdayStore: InputBirthdayStore = hiltViewModel(),
+    registerBirthday: (ZonedDateTime) -> Unit
+) {
 
     val myBirthday by selectState<MainState, ZonedDateTime?> { myBirthday }
     Surface(
@@ -35,7 +30,10 @@ fun MainScreen(inputBirthdayStore: InputBirthdayStore = hiltViewModel()) {
             StoreProvider(
                 store = inputBirthdayStore.store,
             ) {
-                InputMyBirthdayContent(isInitial = true, onClick = {/* TODO */})
+                InputMyBirthdayContent(
+                    isInitial = true,
+                    onClick = registerBirthday,
+                )
             }
         } else {
             PeriodSinceBirthContent(myBirthday = myBirthday!!)

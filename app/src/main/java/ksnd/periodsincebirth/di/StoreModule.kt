@@ -9,17 +9,9 @@ import ksnd.periodsincebirth.reducer.mainReducer
 import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.state.MainState
 import org.reduxkotlin.Store
+import org.reduxkotlin.applyMiddleware
 import org.reduxkotlin.createStore
-import javax.inject.Qualifier
 import javax.inject.Singleton
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class MainStore
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class InputBirthdayStore
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -30,6 +22,7 @@ object StoreModule {
         return createStore(
             reducer = mainReducer,
             preloadedState = MainState(myBirthday = null, showSettingDialog = false),
+            enhancer = applyMiddleware(), // TODO
         )
     }
 
