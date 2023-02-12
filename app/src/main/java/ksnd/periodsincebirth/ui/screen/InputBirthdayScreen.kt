@@ -77,7 +77,7 @@ fun InputMyBirthdayContent(isInitial: Boolean, onClick: (ZonedDateTime) -> Unit)
             )
         }
         TitleCard(
-            text = stringResource(id = R.string.register_birthday),
+            text = stringResource(id = R.string.register_birth_date),
             painter = painterResource(id = R.drawable.baseline_calendar_month_24),
         )
         CustomOutlinedTextField(

@@ -3,9 +3,14 @@
     <string name="year">Year</string>
     <string name="month">Month</string>
     <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Hour</string>
+    <string name="secont">Hour</string>
     <string name="register">Register</string>
     <string name="change">Change</string>
-    <string name="register_birthday">Register birthday</string>
+    <string name="register_birth_date">Register birth date</string>
     <string name="welcome">WELCOME!!</string>
     <string name="can_be_changed">※ It can be changed later.</string>
+    <string name="birth_date">Birth date</string>
+    <string name="approximately">Approx.</string>
 </resources>
