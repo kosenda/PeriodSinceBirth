@@ -15,7 +15,6 @@ import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.store.InputBirthdayStore
 import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.content.InputMyBirthdayContent
-import ksnd.periodsincebirth.ui.content.PeriodSinceBirthContent
 import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.selectState
 import java.time.ZonedDateTime

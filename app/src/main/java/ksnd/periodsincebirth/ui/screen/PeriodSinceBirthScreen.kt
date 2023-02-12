@@ -1,4 +1,4 @@
-package ksnd.periodsincebirth.ui.content
+package ksnd.periodsincebirth.ui.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
