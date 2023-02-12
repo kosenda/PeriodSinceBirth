@@ -188,4 +188,3 @@ fun PreviewInputMyBirthdayContent_Dark() {
         }
     }
 }
-

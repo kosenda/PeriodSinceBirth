@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
 import ksnd.periodsincebirth.reducer.mainReducer
-import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.state.AppState
+import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.Store
 import org.reduxkotlin.applyMiddleware

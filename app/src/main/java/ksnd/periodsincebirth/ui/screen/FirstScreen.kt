@@ -61,7 +61,8 @@ fun FirstScreen(
                         isInitial = true,
                         onClick = {
                             registerBirthday(it)
-                            transitionScreen(NavigationItems.PeriodSinceBirth) },
+                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                        },
                     )
                 }
             }
@@ -69,10 +70,8 @@ fun FirstScreen(
                 PeriodSinceBirthContent(myBirthday = myBirthday!!)
             }
             composable(NavigationItems.Settings.route) {
-
             }
             composable(NavigationItems.Info.route) {
-
             }
         }
     }

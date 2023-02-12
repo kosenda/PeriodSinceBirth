@@ -18,8 +18,8 @@ val inputBirthdayReducer: Reducer<InputBirthdayState> =
                 Timber.i(birthday.toString())
                 state.copy(
                     birthday = birthday,
-                    isChangeable = birthday != null)
+                    isChangeable = birthday != null,
+                )
             }
         }
     }
-

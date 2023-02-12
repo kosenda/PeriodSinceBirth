@@ -32,7 +32,7 @@ private fun getNowDate(): ZonedDateTime {
     return makeZonedDateTime(
         year = now.year.toString(),
         month = now.monthValue.toString(),
-        day = now.dayOfMonth.toString()
+        day = now.dayOfMonth.toString(),
     )
 }
 

@@ -58,8 +58,11 @@ class TimeUtilTest {
         // ZonedDateTimeを渡すとyyyy/MM/ddの形式で文字列を作成する
         val regex = "\\d{4}/\\d{2}/\\d{2}"
         assertThat(convertZoneTimeToStr(ZonedDateTime.now())).matches(regex)
-        assertThat(convertZoneTimeToStr(
-            makeBirthday(year = "0001", month = "01", day = "01")!!)).matches(regex)
+        assertThat(
+            convertZoneTimeToStr(
+                makeBirthday(year = "0001", month = "01", day = "01")!!,
+            ),
+        ).matches(regex)
     }
 
     @Test
@@ -75,8 +78,10 @@ class TimeUtilTest {
         val days = untilNow(time, ChronoUnit.DAYS).removeCommaAndToLong()
         val months = untilNow(time, ChronoUnit.MONTHS).removeCommaAndToLong()
         val years = untilNow(time, ChronoUnit.YEARS).removeCommaAndToLong()
-        assertThat(
-            seconds > minutes && minutes > hours && hours > days && days > months && months > years
-        ).isTrue()
+        assertThat(seconds > minutes).isTrue()
+        assertThat(minutes > hours).isTrue()
+        assertThat(hours > days).isTrue()
+        assertThat(days > months).isTrue()
+        assertThat(months > years).isTrue()
     }
 }

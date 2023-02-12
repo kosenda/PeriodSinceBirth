@@ -11,4 +11,4 @@ val mainReducer: Reducer<AppState> =
             is AppAction.ChangeBirthday -> state.copy(myBirthday = action.newMyBirthday)
             is AppAction.TransitionScreen -> state.copy(navState = action.next)
         }
-}
+    }

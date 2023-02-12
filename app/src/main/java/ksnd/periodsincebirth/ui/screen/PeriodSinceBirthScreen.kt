@@ -33,4 +33,3 @@ fun PeriodSinceBirthContent(myBirthday: ZonedDateTime) {
         Text(text = untilNow(time = myBirthday, ChronoUnit.SECONDS))
     }
 }
-
