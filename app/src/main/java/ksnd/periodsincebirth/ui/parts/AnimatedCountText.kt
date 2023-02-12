@@ -57,7 +57,7 @@ fun AnimatedCountText(title: String, value: Long, duration: Int, isApprox: Boole
         textAlign = TextAlign.Center,
         text = "%,d".format((value.toFloat() * ratio.value).toLong()),
         style = MaterialTheme.typography.headlineSmall,
-        color = MaterialTheme.colorScheme.tertiary,
+        color = MaterialTheme.colorScheme.primary,
         fontWeight = FontWeight.Bold,
     )
 }

@@ -40,7 +40,7 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
                     .padding(vertical = 12.dp)
                     .fillMaxWidth(),
                 text = stringResource(id = R.string.since_birth),
-                color = MaterialTheme.colorScheme.secondary,
+                color = MaterialTheme.colorScheme.tertiary,
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.headlineSmall,
@@ -82,7 +82,7 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
                 modifier = Modifier
                     .padding(top = 16.dp)
                     .fillMaxWidth(),
-                text = "※ :  %s".format(stringResource(id = R.string.approximately)),
+                text = "※ %s".format(stringResource(id = R.string.approximately)),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.inverseSurface,
                 textAlign = TextAlign.Right,
