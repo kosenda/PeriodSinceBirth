@@ -5,12 +5,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.store.InputBirthdayStore
 import ksnd.periodsincebirth.ui.NavigationItems
@@ -24,8 +26,15 @@ fun FirstScreen(
     registerBirthday: (ZonedDateTime) -> Unit,
     transitionScreen: (NavigationItems) -> Unit,
 ) {
+    val systemUiController = rememberSystemUiController()
+    val color = MaterialTheme.colorScheme.surface
+    SideEffect {
+        systemUiController.setStatusBarColor(color)
+        systemUiController.setNavigationBarColor(color)
+    }
+
     val navController = rememberNavController()
-    val myBirthday by selectState<AppState, ZonedDateTime?> { myBirthday }
+    val birthday by selectState<AppState, ZonedDateTime?> { birthday }
     val navState by selectState<AppState, NavigationItems> { navState }
 
     LaunchedEffect(navState) {
@@ -67,7 +76,7 @@ fun FirstScreen(
                 }
             }
             composable(NavigationItems.PeriodSinceBirth.route) {
-                PeriodSinceBirthContent(myBirthday = myBirthday!!)
+                PeriodSinceBirthScreen(birthday = birthday!!)
             }
             composable(NavigationItems.Settings.route) {
             }

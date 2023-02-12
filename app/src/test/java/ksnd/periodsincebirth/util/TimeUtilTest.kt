@@ -69,15 +69,14 @@ class TimeUtilTest {
     fun untilNow_chronoUnit_isReturn() {
         // 指定した日時とchronoUnitからの経過数を取得できる
         val time = makeBirthday(year = "0001", month = "01", day = "01")!!
-        assertThat(untilNow(time = time, chronoUnit = ChronoUnit.YEARS)).isNotEmpty()
+        assertThat(untilNow(time = time, chronoUnit = ChronoUnit.YEARS)).isGreaterThan(0L)
 
-        fun String.removeCommaAndToLong() = this.replace(",", "").toLong()
-        val seconds = untilNow(time, ChronoUnit.SECONDS).removeCommaAndToLong()
-        val minutes = untilNow(time, ChronoUnit.MINUTES).removeCommaAndToLong()
-        val hours = untilNow(time, ChronoUnit.HOURS).removeCommaAndToLong()
-        val days = untilNow(time, ChronoUnit.DAYS).removeCommaAndToLong()
-        val months = untilNow(time, ChronoUnit.MONTHS).removeCommaAndToLong()
-        val years = untilNow(time, ChronoUnit.YEARS).removeCommaAndToLong()
+        val seconds = untilNow(time, ChronoUnit.SECONDS)
+        val minutes = untilNow(time, ChronoUnit.MINUTES)
+        val hours = untilNow(time, ChronoUnit.HOURS)
+        val days = untilNow(time, ChronoUnit.DAYS)
+        val months = untilNow(time, ChronoUnit.MONTHS)
+        val years = untilNow(time, ChronoUnit.YEARS)
         assertThat(seconds > minutes).isTrue()
         assertThat(minutes > hours).isTrue()
         assertThat(hours > days).isTrue()

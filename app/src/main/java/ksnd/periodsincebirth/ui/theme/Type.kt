@@ -13,6 +13,14 @@ fun typography(): Typography {
             fontWeight = FontWeight.Normal,
             fontSize = 32.sp,
         ),
+        headlineMedium = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 30.sp,
+        ),
+        headlineSmall = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 28.sp,
+        ),
         titleLarge = TextStyle(
             fontFamily = fontFamily,
             fontWeight = FontWeight.Normal,

@@ -22,7 +22,7 @@ object StoreModule {
     fun provideMainStore(): Store<AppState> {
         return createStore(
             reducer = mainReducer,
-            preloadedState = AppState(myBirthday = null, navState = NavigationItems.Loading),
+            preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
             enhancer = applyMiddleware(), // TODO
         )
     }

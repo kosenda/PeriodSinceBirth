@@ -23,8 +23,8 @@ fun convertZoneTimeToStr(time: ZonedDateTime): String {
     return time.format(formatter)
 }
 
-fun untilNow(time: ZonedDateTime, chronoUnit: ChronoUnit): String {
-    return "%,d".format(time.until(getNowDate(), chronoUnit))
+fun untilNow(time: ZonedDateTime, chronoUnit: ChronoUnit): Long {
+    return time.until(getNowDate(), chronoUnit)
 }
 
 private fun getNowDate(): ZonedDateTime {
