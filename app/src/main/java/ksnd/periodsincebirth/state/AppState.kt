@@ -1,8 +1,9 @@
 package ksnd.periodsincebirth.state
 
+import ksnd.periodsincebirth.ui.NavigationItems
 import java.time.ZonedDateTime
 
-data class MainState(
+data class AppState(
     val myBirthday: ZonedDateTime?,
-    val showSettingDialog: Boolean,
+    val navState: NavigationItems,
 )

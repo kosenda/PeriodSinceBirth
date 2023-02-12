@@ -123,7 +123,7 @@ fun InputMyBirthdayContent(isInitial: Boolean, onClick: (ZonedDateTime) -> Unit)
 
 @Preview
 @Composable
-fun PreviewInputMyBirthdayContent_Light() {
+fun PreviewInputMyBirthdayContent_Initial_Light() {
     PeriodSinceBirthTheme(isDarkTheme = false) {
         StoreProvider(
             store = createStore(
@@ -140,7 +140,7 @@ fun PreviewInputMyBirthdayContent_Light() {
 
 @Preview
 @Composable
-fun PreviewInputMyBirthdayContent_Dark() {
+fun PreviewInputMyBirthdayContent_Initial_Dark() {
     PeriodSinceBirthTheme(isDarkTheme = true) {
         StoreProvider(
             store = createStore(
@@ -154,3 +154,38 @@ fun PreviewInputMyBirthdayContent_Dark() {
         }
     }
 }
+
+@Preview
+@Composable
+fun PreviewInputMyBirthdayContent_Light() {
+    PeriodSinceBirthTheme(isDarkTheme = false) {
+        StoreProvider(
+            store = createStore(
+                reducer = inputBirthdayReducer,
+                preloadedState = InputBirthdayState(year = "", month = "", day = ""),
+            ),
+        ) {
+            Surface(color = MaterialTheme.colorScheme.surface) {
+                InputMyBirthdayContent(isInitial = false) {}
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewInputMyBirthdayContent_Dark() {
+    PeriodSinceBirthTheme(isDarkTheme = true) {
+        StoreProvider(
+            store = createStore(
+                reducer = inputBirthdayReducer,
+                preloadedState = InputBirthdayState(year = "", month = "", day = ""),
+            ),
+        ) {
+            Surface(color = MaterialTheme.colorScheme.surface) {
+                InputMyBirthdayContent(isInitial = false) {}
+            }
+        }
+    }
+}
+

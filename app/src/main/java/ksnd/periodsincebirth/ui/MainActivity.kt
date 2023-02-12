@@ -8,14 +8,11 @@ import androidx.compose.runtime.SideEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-import ksnd.periodsincebirth.actions.MainAction
-import ksnd.periodsincebirth.state.MainState
-import ksnd.periodsincebirth.store.MainStore
-import ksnd.periodsincebirth.ui.screen.MainScreen
+import ksnd.periodsincebirth.actions.AppAction
+import ksnd.periodsincebirth.store.AppStore
+import ksnd.periodsincebirth.ui.screen.FirstScreen
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
-import org.reduxkotlin.Middleware
 import org.reduxkotlin.compose.StoreProvider
-import java.time.ZonedDateTime
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -29,13 +26,14 @@ class MainActivity : ComponentActivity() {
                 systemUiController.setNavigationBarColor(color)
             }
 
-            val mainStore: MainStore = hiltViewModel()
+            val firstStore: AppStore = hiltViewModel()
             PeriodSinceBirthTheme {
                 StoreProvider(
-                    store = mainStore.store,
+                    store = firstStore.store,
                 ) {
-                    MainScreen(
-                        registerBirthday = { new -> dispatch(MainAction.ChangeBirthday(new)) }
+                    FirstScreen(
+                        registerBirthday = { new -> dispatch(AppAction.ChangeBirthday(new)) },
+                        transitionScreen = { item -> dispatch(AppAction.TransitionScreen(item)) },
                     )
                 }
             }
