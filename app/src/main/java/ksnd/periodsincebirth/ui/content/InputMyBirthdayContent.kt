@@ -37,13 +37,15 @@ import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 import org.reduxkotlin.createStore
+import java.time.ZonedDateTime
 
 @Composable
-fun InputMyBirthdayContent(isInitial: Boolean) {
+fun InputMyBirthdayContent(isInitial: Boolean, onClick: (ZonedDateTime) -> Unit) {
     val inputYear by selectState<InputBirthdayState, String> { year }
     val inputMonth by selectState<InputBirthdayState, String> { month }
     val inputDay by selectState<InputBirthdayState, String> { day }
     val isChangeable by selectState<InputBirthdayState, Boolean> { isChangeable }
+    val birthday by selectState<InputBirthdayState, ZonedDateTime?> { birthday }
     val dispatch = rememberDispatcher()
     val focusManager = LocalFocusManager.current
 
@@ -53,12 +55,12 @@ fun InputMyBirthdayContent(isInitial: Boolean) {
 
     Column(
         modifier = Modifier
-            .padding(horizontal = 32.dp)
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .pointerInput(Unit) {
                 detectTapGestures(onTap = { focusManager.clearFocus() })
-            },
+            }
+            .padding(horizontal = 32.dp)
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.Start,
     ) {
         if (isInitial) {
@@ -94,15 +96,17 @@ fun InputMyBirthdayContent(isInitial: Boolean) {
             labelText = stringResource(id = R.string.day),
             onValueChange = { day -> dispatch(InputBirthdayAction.InputDay(day)) },
         )
-        Text(
-            modifier = Modifier
-                .padding(all = 8.dp)
-                .fillMaxWidth(),
-            text = stringResource(id = R.string.can_be_changed),
-            style = MaterialTheme.typography.bodySmall,
-            textAlign = TextAlign.Right,
-            color = MaterialTheme.colorScheme.onSurface,
-        )
+        if (isInitial) {
+            Text(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .fillMaxWidth(),
+                text = stringResource(id = R.string.can_be_changed),
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Right,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+        }
         IconAndTextButton(
             modifier = Modifier
                 .fillMaxWidth(1f)
@@ -112,7 +116,7 @@ fun InputMyBirthdayContent(isInitial: Boolean) {
             text = when {
                 isInitial -> stringResource(id = R.string.register)
                 else -> stringResource(id = R.string.change) },
-            onClick = { /* TODO */ },
+            onClick = { birthday?.let { onClick(it) } },
         )
     }
 }
@@ -128,7 +132,7 @@ fun PreviewInputMyBirthdayContent_Light() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true)
+                InputMyBirthdayContent(isInitial = true) {}
             }
         }
     }
@@ -145,7 +149,7 @@ fun PreviewInputMyBirthdayContent_Dark() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true)
+                InputMyBirthdayContent(isInitial = true) {}
             }
         }
     }

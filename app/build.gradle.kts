@@ -105,6 +105,9 @@ dependencies {
 
     // Truth
     testImplementation("com.google.truth:truth:1.1.3")
+
+    // accompanist
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {
