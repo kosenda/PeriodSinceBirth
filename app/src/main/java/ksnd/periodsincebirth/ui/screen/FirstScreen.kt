@@ -16,7 +16,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.store.InputBirthdayStore
 import ksnd.periodsincebirth.ui.NavigationItems
-import ksnd.periodsincebirth.ui.content.InputMyBirthdayContent
 import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.selectState
 import java.time.ZonedDateTime
@@ -75,8 +74,25 @@ fun FirstScreen(
                     )
                 }
             }
+            composable(NavigationItems.ChangeBirthday.route) {
+                val inputBirthdayStore: InputBirthdayStore = hiltViewModel()
+                StoreProvider(
+                    store = inputBirthdayStore.store,
+                ) {
+                    InputMyBirthdayContent(
+                        isInitial = false,
+                        backScreen = {
+                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                        },
+                        onClick = {
+                            registerBirthday(it)
+                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                        },
+                    )
+                }
+            }
             composable(NavigationItems.PeriodSinceBirth.route) {
-                PeriodSinceBirthScreen(birthday = birthday!!)
+                PeriodSinceBirthScreen(birthday = birthday!!, transitionScreen = transitionScreen)
             }
             composable(NavigationItems.Settings.route) {
             }

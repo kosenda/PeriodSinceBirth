@@ -30,7 +30,7 @@ fun LoadingScreen(
             transitionScreen(NavigationItems.InputBirthday)
         }
     }
-    Surface() {
+    Surface {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -38,7 +38,7 @@ fun LoadingScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text(text = "loaging...") // TODO 仮
+            Text(text = "loading...")
         }
     }
 }
