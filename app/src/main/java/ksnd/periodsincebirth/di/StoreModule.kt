@@ -20,7 +20,7 @@ import javax.inject.Singleton
 object StoreModule {
     @Provides
     @Singleton
-    fun provideMainStore(): Store<AppState> {
+    fun provideAppStore(): Store<AppState> {
         return createStore(
             reducer = mainReducer,
             preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
