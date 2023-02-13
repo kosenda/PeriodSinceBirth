@@ -15,19 +15,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.ui.NavigationItems
-import java.time.ZonedDateTime
+import org.reduxkotlin.compose.rememberDispatcher
 
 @Composable
-fun LoadingScreen(
-    transitionScreen: (NavigationItems) -> Unit,
-    loadingBirthday: (ZonedDateTime) -> Unit, // TODO 永続化データを読み込む
-) {
+fun LoadingScreen() {
+    val dispatch = rememberDispatcher()
     LaunchedEffect(Unit) {
         // TODO 仮
         CoroutineScope(Dispatchers.IO).launch {
             delay(1000L)
-            transitionScreen(NavigationItems.InputBirthday)
+            dispatch(AppAction.TransitionScreen(NavigationItems.InputBirthday))
         }
     }
     Surface {

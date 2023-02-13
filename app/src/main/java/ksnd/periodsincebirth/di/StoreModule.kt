@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import ksnd.periodsincebirth.middleware.appMiddleware
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
 import ksnd.periodsincebirth.reducer.mainReducer
 import ksnd.periodsincebirth.state.AppState
@@ -23,7 +24,7 @@ object StoreModule {
         return createStore(
             reducer = mainReducer,
             preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
-            enhancer = applyMiddleware(), // TODO
+            enhancer = applyMiddleware(appMiddleware()),
         )
     }
 

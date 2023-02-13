@@ -21,10 +21,7 @@ class MainActivity : ComponentActivity() {
                 StoreProvider(
                     store = firstStore.store,
                 ) {
-                    FirstScreen(
-                        registerBirthday = { new -> dispatch(AppAction.ChangeBirthday(new)) },
-                        transitionScreen = { item -> dispatch(AppAction.TransitionScreen(item)) },
-                    )
+                    FirstScreen()
                 }
             }
         }

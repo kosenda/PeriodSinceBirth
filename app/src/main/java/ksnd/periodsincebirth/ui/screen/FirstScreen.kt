@@ -13,18 +13,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.store.InputBirthdayStore
 import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.compose.StoreProvider
+import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 import java.time.ZonedDateTime
 
 @Composable
-fun FirstScreen(
-    registerBirthday: (ZonedDateTime) -> Unit,
-    transitionScreen: (NavigationItems) -> Unit,
-) {
+fun FirstScreen() {
     val systemUiController = rememberSystemUiController()
     val color = MaterialTheme.colorScheme.surface
     SideEffect {
@@ -35,6 +34,7 @@ fun FirstScreen(
     val navController = rememberNavController()
     val birthday by selectState<AppState, ZonedDateTime?> { birthday }
     val navState by selectState<AppState, NavigationItems> { navState }
+    val dispatch = rememberDispatcher()
 
     LaunchedEffect(navState) {
         navController.navigate(navState.route) {
@@ -55,10 +55,7 @@ fun FirstScreen(
             startDestination = NavigationItems.Loading.route,
         ) {
             composable(NavigationItems.Loading.route) {
-                LoadingScreen(
-                    transitionScreen = transitionScreen,
-                    loadingBirthday = registerBirthday,
-                )
+                LoadingScreen()
             }
             composable(NavigationItems.InputBirthday.route) {
                 val inputBirthdayStore: InputBirthdayStore = hiltViewModel()
@@ -68,8 +65,8 @@ fun FirstScreen(
                     InputMyBirthdayContent(
                         isInitial = true,
                         onClick = {
-                            registerBirthday(it)
-                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                            dispatch(AppAction.ChangeBirthday(it))
+                            dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
                     )
                 }
@@ -82,17 +79,17 @@ fun FirstScreen(
                     InputMyBirthdayContent(
                         isInitial = false,
                         backScreen = {
-                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                            dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
                         onClick = {
-                            registerBirthday(it)
-                            transitionScreen(NavigationItems.PeriodSinceBirth)
+                            dispatch(AppAction.ChangeBirthday(it))
+                            dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
                     )
                 }
             }
             composable(NavigationItems.PeriodSinceBirth.route) {
-                PeriodSinceBirthScreen(birthday = birthday!!, transitionScreen = transitionScreen)
+                PeriodSinceBirthScreen(birthday = birthday!!)
             }
             composable(NavigationItems.Settings.route) {
             }
