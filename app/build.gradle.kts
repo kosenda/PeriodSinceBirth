@@ -111,6 +111,9 @@ dependencies {
 
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.5.3")
+
+    // dataStore preferences
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {

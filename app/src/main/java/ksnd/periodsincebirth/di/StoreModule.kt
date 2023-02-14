@@ -5,8 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ksnd.periodsincebirth.middleware.appMiddleware
+import ksnd.periodsincebirth.reducer.appReducer
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
-import ksnd.periodsincebirth.reducer.mainReducer
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.ui.NavigationItems
@@ -22,9 +22,9 @@ object StoreModule {
     @Singleton
     fun provideAppStore(): Store<AppState> {
         return createStore(
-            reducer = mainReducer,
+            reducer = appReducer,
             preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
-            enhancer = applyMiddleware(appMiddleware()),
+            enhancer = applyMiddleware(appMiddleware),
         )
     }
 
@@ -34,6 +34,7 @@ object StoreModule {
         return createStore(
             reducer = inputBirthdayReducer,
             preloadedState = InputBirthdayState(year = "", month = "", day = ""),
+            enhancer = applyMiddleware(),
         )
     }
 }

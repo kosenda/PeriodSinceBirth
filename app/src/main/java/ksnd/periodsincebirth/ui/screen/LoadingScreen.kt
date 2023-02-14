@@ -11,23 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import ksnd.periodsincebirth.actions.AppAction
-import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.compose.rememberDispatcher
 
 @Composable
 fun LoadingScreen() {
     val dispatch = rememberDispatcher()
     LaunchedEffect(Unit) {
-        // TODO 仮
-        CoroutineScope(Dispatchers.IO).launch {
-            delay(1000L)
-            dispatch(AppAction.TransitionScreen(NavigationItems.InputBirthday))
-        }
+        dispatch(AppAction.FetchBirthday)
     }
     Surface {
         Column(
