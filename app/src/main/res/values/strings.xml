@@ -17,4 +17,5 @@
     <string name="seconds">Seconds</string>
     <string name="approximately">Approx.</string>
     <string name="since_birth">Since birth …</string>
+    <string name="loading">loading…</string>
 </resources>
