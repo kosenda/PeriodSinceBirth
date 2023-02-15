@@ -30,7 +30,7 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         ),
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
     ) {
         Column(
             modifier = Modifier.padding(all = 16.dp),
@@ -48,17 +48,17 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
             AnimatedCountText(
                 value = untilNow(time = birthday, ChronoUnit.YEARS),
                 duration = 250,
-                title = stringResource(id = R.string.years)
+                title = stringResource(id = R.string.years),
             )
             AnimatedCountText(
                 value = untilNow(time = birthday, ChronoUnit.MONTHS),
                 duration = 500,
-                title = stringResource(id = R.string.months)
+                title = stringResource(id = R.string.months),
             )
             AnimatedCountText(
                 value = untilNow(time = birthday, ChronoUnit.DAYS),
                 duration = 750,
-                title = stringResource(id = R.string.days)
+                title = stringResource(id = R.string.days),
             )
             AnimatedCountText(
                 value = untilNow(time = birthday, ChronoUnit.HOURS),
@@ -92,7 +92,9 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
                     .padding(vertical = 8.dp)
                     .fillMaxWidth(),
                 text = "%s: %s".format(
-                    stringResource(id = R.string.birth_date), convertZoneTimeToStr(birthday)),
+                    stringResource(id = R.string.birth_date),
+                    convertZoneTimeToStr(birthday),
+                ),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.inverseSurface,
                 textAlign = TextAlign.Right,

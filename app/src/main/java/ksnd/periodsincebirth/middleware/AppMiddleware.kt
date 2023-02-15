@@ -1,26 +1,51 @@
 package ksnd.periodsincebirth.middleware
 
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ksnd.periodsincebirth.actions.AppAction
+import ksnd.periodsincebirth.repository.DataStoreRepository
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.ui.NavigationItems
+import org.reduxkotlin.Dispatcher
 import org.reduxkotlin.Middleware
+import org.reduxkotlin.TypedStore
 import timber.log.Timber
+import java.time.ZonedDateTime
+import javax.inject.Inject
 
-val appMiddleware : Middleware<AppState> =  { _ ->
-    { next ->
+class AppMiddleware @Inject constructor(
+    private val ioDispatcher: CoroutineDispatcher,
+    private val dataStoreRepository: DataStoreRepository,
+) : Middleware<AppState> {
+
+    override fun invoke(
+        store: TypedStore<AppState, Any>,
+    ): (next: Dispatcher) -> (action: Any) -> Any = { next ->
         { action ->
-            Timber.i("action: %s".format(action))
             next(action)
-            CoroutineScope(Dispatchers.IO).launch {
-                delay(1000L)
-                // TODO DataStore読み込み
-//                next(AppAction.ChangeBirthday(makeBirthday("2000", "1", "1")!!))
-//                next(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
-                next(AppAction.TransitionScreen(NavigationItems.InputBirthday))
+            when (action) {
+                is AppAction.FetchBirthday -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        val birthday: String? = dataStoreRepository.fetchBirthday()
+                        Timber.i(birthday)
+                        when {
+                            birthday != null -> {
+                                next(AppAction.ChangeBirthday(ZonedDateTime.parse(birthday)))
+                                next(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
+                            }
+                            else -> {
+                                next(AppAction.TransitionScreen(NavigationItems.InputBirthday))
+                            }
+                        }
+                    }
+                }
+                is AppAction.ChangeBirthday -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        dataStoreRepository.updateBirthday(action.newBirthday.toString())
+                    }
+                }
+                else -> {}
             }
         }
     }

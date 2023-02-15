@@ -4,9 +4,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ksnd.periodsincebirth.middleware.appMiddleware
+import kotlinx.coroutines.CoroutineDispatcher
+import ksnd.periodsincebirth.middleware.AppMiddleware
+import ksnd.periodsincebirth.middleware.InputBirthdayMiddleware
 import ksnd.periodsincebirth.reducer.appReducer
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
+import ksnd.periodsincebirth.repository.DataStoreRepositoryImpl
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.ui.NavigationItems
@@ -20,11 +23,19 @@ import javax.inject.Singleton
 object StoreModule {
     @Provides
     @Singleton
-    fun provideAppStore(): Store<AppState> {
+    fun provideAppStore(
+        @IODispatcher ioDispatcher: CoroutineDispatcher,
+        dataStoreRepository: DataStoreRepositoryImpl,
+    ): Store<AppState> {
         return createStore(
             reducer = appReducer,
             preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
-            enhancer = applyMiddleware(appMiddleware),
+            enhancer = applyMiddleware(
+                AppMiddleware(
+                    ioDispatcher = ioDispatcher,
+                    dataStoreRepository = dataStoreRepository,
+                ),
+            ),
         )
     }
 
@@ -34,7 +45,9 @@ object StoreModule {
         return createStore(
             reducer = inputBirthdayReducer,
             preloadedState = InputBirthdayState(year = "", month = "", day = ""),
-            enhancer = applyMiddleware(),
+            enhancer = applyMiddleware(
+                InputBirthdayMiddleware(),
+            ),
         )
     }
 }

@@ -11,14 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import ksnd.periodsincebirth.actions.AppAction
 import org.reduxkotlin.compose.rememberDispatcher
 
 @Composable
 fun LoadingScreen() {
     val dispatch = rememberDispatcher()
+    val context = LocalContext.current
     LaunchedEffect(Unit) {
-        dispatch(AppAction.FetchBirthday)
+        dispatch(AppAction.FetchBirthday(context = context))
     }
     Surface {
         Column(

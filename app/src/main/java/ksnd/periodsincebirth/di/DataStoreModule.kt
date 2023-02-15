@@ -19,7 +19,7 @@ object DataStoreModule {
     @Singleton
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> {
         return PreferenceDataStoreFactory.create(
-            produceFile = { context.preferencesDataStoreFile(name = "DataStore") }
+            produceFile = { context.preferencesDataStoreFile(name = "DataStore") },
         )
     }
 }

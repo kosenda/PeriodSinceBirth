@@ -16,6 +16,6 @@ fun TopBar(backScreen: () -> Unit) {
                 painter = painterResource(id = R.drawable.baseline_arrow_back_24),
                 onClick = backScreen,
             )
-        }
+        },
     )
 }

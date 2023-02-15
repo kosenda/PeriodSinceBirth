@@ -47,13 +47,12 @@ import java.time.ZonedDateTime
 fun InputMyBirthdayContent(
     isInitial: Boolean,
     backScreen: () -> Unit = {},
-    onClick: (ZonedDateTime) -> Unit,
+    registerNewBirthday: (ZonedDateTime) -> Unit,
     savedBirthday: ZonedDateTime? = null,
 ) {
     val inputYear by selectState<InputBirthdayState, String> { year }
     val inputMonth by selectState<InputBirthdayState, String> { month }
     val inputDay by selectState<InputBirthdayState, String> { day }
-    val isChangeable by selectState<InputBirthdayState, Boolean> { isChangeable }
     val birthday by selectState<InputBirthdayState, ZonedDateTime?> { birthday }
     val dispatch = rememberDispatcher()
     val focusManager = LocalFocusManager.current
@@ -67,14 +66,20 @@ fun InputMyBirthdayContent(
     }
 
     LaunchedEffect(inputYear, inputMonth, inputDay) {
-        dispatch(InputBirthdayAction.CheckInput)
+        dispatch(
+            InputBirthdayAction.CheckInput(
+                year = inputYear,
+                month = inputMonth,
+                day = inputDay,
+            ),
+        )
     }
     Scaffold(
         topBar = {
             if (isInitial.not()) {
                 TopBar(backScreen = backScreen)
             }
-        }
+        },
     ) { padding ->
         Column(
             modifier = Modifier
@@ -135,13 +140,13 @@ fun InputMyBirthdayContent(
                 modifier = Modifier
                     .fillMaxWidth(1f)
                     .padding(vertical = 24.dp),
-                isClickable = isChangeable,
+                isClickable = birthday != null,
                 painter = painterResource(id = R.drawable.baseline_check_24),
                 text = when {
                     isInitial -> stringResource(id = R.string.register)
                     else -> stringResource(id = R.string.change)
                 },
-                onClick = { birthday?.let { onClick(it) } },
+                onClick = { birthday?.let { registerNewBirthday(it) } },
             )
         }
     }
@@ -158,7 +163,7 @@ fun PreviewInputMyBirthdayContent_Initial_Light() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true, onClick = {})
+                InputMyBirthdayContent(isInitial = true, registerNewBirthday = {})
             }
         }
     }
@@ -175,7 +180,7 @@ fun PreviewInputMyBirthdayContent_Initial_Dark() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true, onClick = {})
+                InputMyBirthdayContent(isInitial = true, registerNewBirthday = {})
             }
         }
     }
@@ -192,7 +197,7 @@ fun PreviewInputMyBirthdayContent_Light() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = false, onClick = {})
+                InputMyBirthdayContent(isInitial = false, registerNewBirthday = {})
             }
         }
     }
@@ -209,7 +214,7 @@ fun PreviewInputMyBirthdayContent_Dark() {
             ),
         ) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = false, onClick = {})
+                InputMyBirthdayContent(isInitial = false, registerNewBirthday = {})
             }
         }
     }

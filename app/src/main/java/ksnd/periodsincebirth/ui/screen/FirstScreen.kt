@@ -64,7 +64,7 @@ fun FirstScreen() {
                 ) {
                     InputMyBirthdayContent(
                         isInitial = true,
-                        onClick = {
+                        registerNewBirthday = {
                             dispatch(AppAction.ChangeBirthday(it))
                             dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
@@ -81,10 +81,11 @@ fun FirstScreen() {
                         backScreen = {
                             dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
-                        onClick = {
+                        registerNewBirthday = {
                             dispatch(AppAction.ChangeBirthday(it))
                             dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
                         },
+                        savedBirthday = birthday,
                     )
                 }
             }

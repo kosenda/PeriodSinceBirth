@@ -21,11 +21,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun AnimatedCountText(title: String, value: Long, duration: Int, isApprox: Boolean = false) {
-    val ratio by remember { mutableStateOf(Animatable(0f))  }
+    val ratio by remember { mutableStateOf(Animatable(0f)) }
     LaunchedEffect(Unit) {
         ratio.animateTo(
             targetValue = 1f,
-            animationSpec = tween(durationMillis = duration)
+            animationSpec = tween(durationMillis = duration),
         )
     }
     Row(

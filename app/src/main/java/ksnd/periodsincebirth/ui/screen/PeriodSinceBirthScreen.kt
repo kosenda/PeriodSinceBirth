@@ -35,17 +35,17 @@ fun PeriodSinceBirthScreen(birthday: ZonedDateTime) {
             CustomIconButton(
                 contentDescription = "change birthday",
                 painter = painterResource(id = R.drawable.baseline_calendar_month_24),
-                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.ChangeBirthday)) }
+                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.ChangeBirthday)) },
             )
             CustomIconButton(
                 contentDescription = "info",
                 painter = painterResource(id = R.drawable.outline_info_24),
-                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Info)) }
+                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Info)) },
             )
             CustomIconButton(
                 contentDescription = "settings",
                 painter = painterResource(id = R.drawable.outline_settings_24),
-                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Settings)) }
+                onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Settings)) },
             )
         }
         PeriodSinceBirthCard(birthday = birthday)
