@@ -1,6 +1,5 @@
 package ksnd.periodsincebirth.ui.screen
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -57,8 +56,6 @@ fun InputMyBirthdayContent(
     val birthday by selectState<InputBirthdayState, ZonedDateTime?> { birthday }
     val dispatch = rememberDispatcher()
     val focusManager = LocalFocusManager.current
-
-    BackHandler(isInitial) {} // 初期時はバックジェスチャをさせない
 
     LaunchedEffect(Unit) {
         savedBirthday?.let {

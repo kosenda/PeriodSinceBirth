@@ -1,6 +1,5 @@
 package ksnd.periodsincebirth.ui.screen
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,8 +22,6 @@ import java.time.ZonedDateTime
 @Composable
 fun PeriodSinceBirthScreen(birthday: ZonedDateTime) {
     val dispatch = rememberDispatcher()
-
-    BackHandler(true) {} // バックジェスチャをさせない
 
     Column(
         modifier = Modifier
