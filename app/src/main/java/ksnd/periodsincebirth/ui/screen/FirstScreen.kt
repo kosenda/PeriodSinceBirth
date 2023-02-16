@@ -52,11 +52,8 @@ fun FirstScreen() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = NavigationItems.Loading.route,
+            startDestination = NavigationItems.PeriodSinceBirth.route,
         ) {
-            composable(NavigationItems.Loading.route) {
-                LoadingScreen()
-            }
             composable(NavigationItems.InputBirthday.route) {
                 val inputBirthdayStore: InputBirthdayStore = hiltViewModel()
                 StoreProvider(
@@ -90,7 +87,7 @@ fun FirstScreen() {
                 }
             }
             composable(NavigationItems.PeriodSinceBirth.route) {
-                PeriodSinceBirthScreen(birthday = birthday!!)
+                PeriodSinceBirthScreen(birthday = birthday)
             }
             composable(NavigationItems.Settings.route) {
             }

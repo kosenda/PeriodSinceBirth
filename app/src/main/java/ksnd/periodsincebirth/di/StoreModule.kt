@@ -29,7 +29,7 @@ object StoreModule {
     ): Store<AppState> {
         return createStore(
             reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.Loading),
+            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
             enhancer = applyMiddleware(
                 AppMiddleware(
                     ioDispatcher = ioDispatcher,
