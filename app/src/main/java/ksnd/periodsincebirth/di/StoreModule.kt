@@ -12,9 +12,11 @@ import ksnd.periodsincebirth.reducer.inputBirthdayReducer
 import ksnd.periodsincebirth.repository.DataStoreRepositoryImpl
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.state.InputBirthdayState
+import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.Store
 import org.reduxkotlin.applyMiddleware
+import org.reduxkotlin.combineReducers
 import org.reduxkotlin.createStore
 import javax.inject.Singleton
 
@@ -26,26 +28,18 @@ object StoreModule {
     fun provideAppStore(
         @IODispatcher ioDispatcher: CoroutineDispatcher,
         dataStoreRepository: DataStoreRepositoryImpl,
-    ): Store<AppState> {
+    ): Store<State> {
         return createStore(
-            reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
+            reducer = combineReducers(appReducer, inputBirthdayReducer),
+            preloadedState = State(
+                appState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
+                inputBirthdayState = InputBirthdayState(year = "", month = "", day = ""),
+            ),
             enhancer = applyMiddleware(
                 AppMiddleware(
                     ioDispatcher = ioDispatcher,
                     dataStoreRepository = dataStoreRepository,
                 ),
-            ),
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideInputBirthdayStore(): Store<InputBirthdayState> {
-        return createStore(
-            reducer = inputBirthdayReducer,
-            preloadedState = InputBirthdayState(year = "", month = "", day = ""),
-            enhancer = applyMiddleware(
                 InputBirthdayMiddleware(),
             ),
         )

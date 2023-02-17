@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import ksnd.periodsincebirth.store.AppStore
+import ksnd.periodsincebirth.store.MainStore
 import ksnd.periodsincebirth.ui.screen.FirstScreen
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import org.reduxkotlin.compose.StoreProvider
@@ -15,10 +15,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val appStore: AppStore = hiltViewModel()
+            val mainStore: MainStore = hiltViewModel()
             PeriodSinceBirthTheme {
                 StoreProvider(
-                    store = appStore.store,
+                    store = mainStore.store,
                 ) {
                     FirstScreen()
                 }

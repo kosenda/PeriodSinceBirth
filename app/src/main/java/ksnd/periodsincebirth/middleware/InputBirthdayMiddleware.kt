@@ -1,17 +1,17 @@
 package ksnd.periodsincebirth.middleware
 
 import ksnd.periodsincebirth.actions.InputBirthdayAction
-import ksnd.periodsincebirth.state.InputBirthdayState
+import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.util.makeBirthday
 import org.reduxkotlin.Dispatcher
 import org.reduxkotlin.Middleware
 import org.reduxkotlin.TypedStore
 import timber.log.Timber
 
-class InputBirthdayMiddleware : Middleware<InputBirthdayState> {
+class InputBirthdayMiddleware : Middleware<State> {
 
     override fun invoke(
-        store: TypedStore<InputBirthdayState, Any>,
+        store: TypedStore<State, Any>,
     ): (next: Dispatcher) -> (action: Any) -> Any = { next ->
         { action ->
             next(action)

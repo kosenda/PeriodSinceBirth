@@ -14,13 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.R
-import ksnd.periodsincebirth.reducer.appReducer
-import ksnd.periodsincebirth.state.AppState
-import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
-import org.reduxkotlin.compose.StoreProvider
-import org.reduxkotlin.createStore
 
 @Composable
 fun LoadingContent() {
@@ -46,12 +42,7 @@ fun LoadingContent() {
 @Preview
 @Composable
 private fun LoadingContent_Light() {
-    StoreProvider(
-        store = createStore(
-            reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-        ),
-    ) {
+    PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = false) {
             LoadingContent()
         }
@@ -61,12 +52,7 @@ private fun LoadingContent_Light() {
 @Preview
 @Composable
 private fun LoadingContent_Dark() {
-    StoreProvider(
-        store = createStore(
-            reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-        ),
-    ) {
+    PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = true) {
             LoadingContent()
         }

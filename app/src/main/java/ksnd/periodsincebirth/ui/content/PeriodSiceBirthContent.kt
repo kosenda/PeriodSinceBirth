@@ -12,18 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.R
 import ksnd.periodsincebirth.actions.AppAction
-import ksnd.periodsincebirth.reducer.appReducer
-import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.parts.CustomIconButton
 import ksnd.periodsincebirth.ui.parts.PeriodSinceBirthCard
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import ksnd.periodsincebirth.util.makeBirthday
-import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.rememberDispatcher
-import org.reduxkotlin.createStore
 import java.time.ZonedDateTime
 
 @Composable
@@ -62,12 +59,7 @@ fun PeriodSinceBirthContent(birthday: ZonedDateTime) {
 @Preview
 @Composable
 private fun PeriodSinceBirthContent_Light() {
-    StoreProvider(
-        store = createStore(
-            reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-        ),
-    ) {
+    PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = false) {
             PeriodSinceBirthContent(birthday = makeBirthday("2000", "1", "1")!!)
         }
@@ -77,12 +69,7 @@ private fun PeriodSinceBirthContent_Light() {
 @Preview
 @Composable
 private fun PeriodSinceBirthContent_Dark() {
-    StoreProvider(
-        store = createStore(
-            reducer = appReducer,
-            preloadedState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-        ),
-    ) {
+    PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = true) {
             PeriodSinceBirthContent(birthday = makeBirthday("2000", "1", "1")!!)
         }

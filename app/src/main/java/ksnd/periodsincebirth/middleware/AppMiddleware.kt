@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.repository.DataStoreRepository
-import ksnd.periodsincebirth.state.AppState
+import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.Dispatcher
 import org.reduxkotlin.Middleware
@@ -17,10 +17,10 @@ import javax.inject.Inject
 class AppMiddleware @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher,
     private val dataStoreRepository: DataStoreRepository,
-) : Middleware<AppState> {
+) : Middleware<State> {
 
     override fun invoke(
-        store: TypedStore<AppState, Any>,
+        store: TypedStore<State, Any>,
     ): (next: Dispatcher) -> (action: Any) -> Any = { next ->
         { action ->
             next(action)
