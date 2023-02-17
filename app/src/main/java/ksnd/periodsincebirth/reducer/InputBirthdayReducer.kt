@@ -7,19 +7,20 @@ import org.reduxkotlin.typedReducer
 
 val inputBirthdayReducer: Reducer<State> =
     typedReducer<State, InputBirthdayAction> { state, action ->
-        when (action) {
-            is InputBirthdayAction.InputYear -> state.copy(
-                inputBirthdayState = state.inputBirthdayState.copy(year = action.year),
-            )
-            is InputBirthdayAction.InputMonth -> state.copy(
-                inputBirthdayState = state.inputBirthdayState.copy(month = action.month),
-            )
-            is InputBirthdayAction.InputDay -> state.copy(
-                inputBirthdayState = state.inputBirthdayState.copy(day = action.day),
-            )
-            is InputBirthdayAction.CheckInput -> state
-            is InputBirthdayAction.SetBirthday -> state.copy(
-                inputBirthdayState = state.inputBirthdayState.copy(birthday = action.birthday),
+        state.run {
+            copy(
+                inputBirthdayState = when (action) {
+                    is InputBirthdayAction.InputYear ->
+                        inputBirthdayState.copy(year = action.year)
+                    is InputBirthdayAction.InputMonth ->
+                        inputBirthdayState.copy(month = action.month)
+                    is InputBirthdayAction.InputDay ->
+                        inputBirthdayState.copy(day = action.day)
+                    is InputBirthdayAction.CheckInput ->
+                        inputBirthdayState
+                    is InputBirthdayAction.SetBirthday ->
+                        inputBirthdayState.copy(birthday = action.birthday)
+                },
             )
         }
     }
