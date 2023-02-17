@@ -12,11 +12,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
-import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
 @Composable
@@ -30,7 +28,6 @@ fun FirstScreen() {
 
     val navController = rememberNavController()
     val appState by selectState<State, AppState> { appState }
-    val dispatch = rememberDispatcher()
 
     LaunchedEffect(appState.navState) {
         navController.navigate(appState.navState.route) {
@@ -51,26 +48,10 @@ fun FirstScreen() {
             startDestination = NavigationItems.PeriodSinceBirth.route,
         ) {
             composable(NavigationItems.InputBirthday.route) {
-                InputMyBirthdayContent(
-                    isInitial = true,
-                    registerNewBirthday = {
-                        dispatch(AppAction.ChangeBirthday(it))
-                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
-                    },
-                )
+                InputMyBirthdayContent(isInitial = true)
             }
             composable(NavigationItems.ChangeBirthday.route) {
-                InputMyBirthdayContent(
-                    isInitial = false,
-                    backScreen = {
-                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
-                    },
-                    registerNewBirthday = {
-                        dispatch(AppAction.ChangeBirthday(it))
-                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
-                    },
-                    savedBirthday = appState.birthday,
-                )
+                InputMyBirthdayContent(isInitial = false, savedBirthday = appState.birthday,)
             }
             composable(NavigationItems.PeriodSinceBirth.route) {
                 PeriodSinceBirthScreen(birthday = appState.birthday)

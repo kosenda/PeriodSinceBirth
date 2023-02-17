@@ -28,9 +28,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.R
+import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.actions.InputBirthdayAction
 import ksnd.periodsincebirth.state.InputBirthdayState
 import ksnd.periodsincebirth.state.State
+import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.parts.CustomOutlinedTextField
 import ksnd.periodsincebirth.ui.parts.IconAndTextButton
 import ksnd.periodsincebirth.ui.parts.TitleCard
@@ -46,8 +48,6 @@ import java.time.ZonedDateTime
 @Composable
 fun InputMyBirthdayContent(
     isInitial: Boolean,
-    backScreen: () -> Unit = {},
-    registerNewBirthday: (ZonedDateTime) -> Unit,
     savedBirthday: ZonedDateTime? = null,
 ) {
     val inputBirthdayState by selectState<State, InputBirthdayState> { inputBirthdayState }
@@ -76,7 +76,11 @@ fun InputMyBirthdayContent(
     Scaffold(
         topBar = {
             if (isInitial.not()) {
-                TopBar(backScreen = backScreen)
+                TopBar(
+                    backScreen = {
+                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
+                    },
+                )
             }
         },
     ) { padding ->
@@ -145,7 +149,10 @@ fun InputMyBirthdayContent(
                     isInitial -> stringResource(id = R.string.register)
                     else -> stringResource(id = R.string.change)
                 },
-                onClick = { inputBirthdayState.birthday?.let { registerNewBirthday(it) } },
+                onClick = {
+                    inputBirthdayState.birthday?.let {
+                        dispatch(AppAction.ChangeBirthday(it))
+                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth)) }},
             )
         }
     }
@@ -157,7 +164,7 @@ private fun PreviewInputMyBirthdayContent_Initial_Light() {
     PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = false) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true, registerNewBirthday = {})
+                InputMyBirthdayContent(isInitial = true)
             }
         }
     }
@@ -168,7 +175,7 @@ private fun PreviewInputMyBirthdayContent_Initial_Light() {
 fun PreviewInputMyBirthdayContent_Initial_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = true, registerNewBirthday = {})
+            InputMyBirthdayContent(isInitial = true)
         }
     }
 }
@@ -178,7 +185,7 @@ fun PreviewInputMyBirthdayContent_Initial_Dark() {
 fun PreviewInputMyBirthdayContent_Light() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = false, registerNewBirthday = {})
+            InputMyBirthdayContent(isInitial = false)
         }
     }
 }
@@ -188,7 +195,7 @@ fun PreviewInputMyBirthdayContent_Light() {
 fun PreviewInputMyBirthdayContent_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = true, registerNewBirthday = {})
+            InputMyBirthdayContent(isInitial = true)
         }
     }
 }
