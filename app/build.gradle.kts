@@ -114,6 +114,13 @@ dependencies {
 
     // dataStore preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Robolectric environment
+    testImplementation("androidx.test:core:1.5.0")
+    testImplementation("org.robolectric:robolectric:4.9.1")
+
+    // Test Coroutine
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {
