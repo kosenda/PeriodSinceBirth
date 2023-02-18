@@ -57,6 +57,7 @@ fun FirstScreen() {
                 PeriodSinceBirthScreen(birthday = appState.birthday)
             }
             composable(NavigationItems.Settings.route) {
+                SettingScreen()
             }
             composable(NavigationItems.Info.route) {
             }
