@@ -12,13 +12,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import ksnd.periodsincebirth.actions.SettingAction
 import ksnd.periodsincebirth.state.AppState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
+import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
 @Composable
-fun FirstScreen() {
+fun NavScreen() {
     val systemUiController = rememberSystemUiController()
     val color = MaterialTheme.colorScheme.surface
     SideEffect {

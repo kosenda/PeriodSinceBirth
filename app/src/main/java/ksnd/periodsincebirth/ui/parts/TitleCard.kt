@@ -35,7 +35,6 @@ fun TitleCard(text: String, painter: Painter) {
         colors = CardDefaults.cardColors(
             containerColor = Color.Transparent,
         ),
-        shape = RectangleShape,
     ) {
         Row(
             modifier = Modifier

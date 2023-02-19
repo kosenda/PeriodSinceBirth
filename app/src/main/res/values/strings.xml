@@ -18,4 +18,8 @@
     <string name="approximately">Approx.</string>
     <string name="since_birth">Since birth …</string>
     <string name="loading">loading…</string>
+    <string name="theme_setting">Theme</string>
+    <string name="dark_mode">Dark</string>
+    <string name="light_mode">Light</string>
+    <string name="auto_mode">Auto</string>
 </resources>

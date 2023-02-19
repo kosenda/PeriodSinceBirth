@@ -24,7 +24,13 @@ class SettingMiddleware @Inject constructor(
             when (action) {
                 is SettingAction.FetchTheme -> {
                     CoroutineScope(ioDispatcher).launch {
-                        // TODO 設定されたThemeを読み取る
+                        val selectedTheme = dataStoreRepository.selectedTheme()
+                        next(SettingAction.SetTheme(selectedTheme))
+                    }
+                }
+                is SettingAction.ChangeTheme -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        dataStoreRepository.updateTheme(newTheme = action.theme)
                     }
                 }
                 else -> {}

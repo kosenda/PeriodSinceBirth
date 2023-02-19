@@ -11,6 +11,8 @@ val settingReducer: Reducer<State> =
             copy(
                 settingState = when (action) {
                     is SettingAction.FetchTheme -> settingState
+                    is SettingAction.SetTheme -> settingState.copy(theme = action.theme)
+                    is SettingAction.ChangeTheme -> settingState.copy(theme = action.theme)
                 },
             )
         }
