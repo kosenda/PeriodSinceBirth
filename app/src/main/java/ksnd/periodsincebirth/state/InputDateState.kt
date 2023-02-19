@@ -2,7 +2,7 @@ package ksnd.periodsincebirth.state
 
 import java.time.ZonedDateTime
 
-data class InputBirthdayState(
+data class InputDateState(
     val year: String,
     val month: String,
     val day: String,

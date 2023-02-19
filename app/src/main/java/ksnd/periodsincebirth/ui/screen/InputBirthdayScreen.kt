@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.dp
 import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.R
 import ksnd.periodsincebirth.actions.AppAction
-import ksnd.periodsincebirth.actions.InputBirthdayAction
-import ksnd.periodsincebirth.state.InputBirthdayState
+import ksnd.periodsincebirth.actions.InputDateAction
+import ksnd.periodsincebirth.state.InputDateState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.parts.CustomOutlinedTextField
@@ -46,11 +46,11 @@ import java.time.ZonedDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InputMyBirthdayContent(
+fun InputBirthdayContent(
     isInitial: Boolean,
     savedBirthday: ZonedDateTime? = null,
 ) {
-    val inputBirthdayState by selectState<State, InputBirthdayState> { inputBirthdayState }
+    val inputBirthdayState by selectState<State, InputDateState> { inputDateState }
     val dispatch = rememberDispatcher()
     val focusManager = LocalFocusManager.current
 
@@ -58,15 +58,15 @@ fun InputMyBirthdayContent(
 
     LaunchedEffect(Unit) {
         savedBirthday?.let {
-            dispatch(InputBirthdayAction.InputYear(it.year.toString()))
-            dispatch(InputBirthdayAction.InputMonth(it.monthValue.toString()))
-            dispatch(InputBirthdayAction.InputDay(it.dayOfMonth.toString()))
+            dispatch(InputDateAction.InputYear(it.year.toString()))
+            dispatch(InputDateAction.InputMonth(it.monthValue.toString()))
+            dispatch(InputDateAction.InputDay(it.dayOfMonth.toString()))
         }
     }
 
     LaunchedEffect(inputBirthdayState.year, inputBirthdayState.month, inputBirthdayState.day) {
         dispatch(
-            InputBirthdayAction.CheckInput(
+            InputDateAction.CheckInput(
                 year = inputBirthdayState.year,
                 month = inputBirthdayState.month,
                 day = inputBirthdayState.day,
@@ -115,18 +115,18 @@ fun InputMyBirthdayContent(
             CustomOutlinedTextField(
                 text = inputBirthdayState.year,
                 labelText = stringResource(id = R.string.year),
-                onValueChange = { year -> dispatch(InputBirthdayAction.InputYear(year)) },
+                onValueChange = { year -> dispatch(InputDateAction.InputYear(year)) },
             )
             CustomOutlinedTextField(
                 text = inputBirthdayState.month,
                 labelText = stringResource(id = R.string.month),
-                onValueChange = { month -> dispatch(InputBirthdayAction.InputMonth(month)) },
+                onValueChange = { month -> dispatch(InputDateAction.InputMonth(month)) },
             )
             CustomOutlinedTextField(
                 modifier = Modifier.padding(bottom = 8.dp),
                 text = inputBirthdayState.day,
                 labelText = stringResource(id = R.string.day),
-                onValueChange = { day -> dispatch(InputBirthdayAction.InputDay(day)) },
+                onValueChange = { day -> dispatch(InputDateAction.InputDay(day)) },
             )
             if (isInitial) {
                 Text(
@@ -164,7 +164,7 @@ private fun PreviewInputMyBirthdayContent_Initial_Light() {
     PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = false) {
             Surface(color = MaterialTheme.colorScheme.surface) {
-                InputMyBirthdayContent(isInitial = true)
+                InputBirthdayContent(isInitial = true)
             }
         }
     }
@@ -175,7 +175,7 @@ private fun PreviewInputMyBirthdayContent_Initial_Light() {
 fun PreviewInputMyBirthdayContent_Initial_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = true)
+            InputBirthdayContent(isInitial = true)
         }
     }
 }
@@ -185,7 +185,7 @@ fun PreviewInputMyBirthdayContent_Initial_Dark() {
 fun PreviewInputMyBirthdayContent_Light() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = false)
+            InputBirthdayContent(isInitial = false)
         }
     }
 }
@@ -195,7 +195,7 @@ fun PreviewInputMyBirthdayContent_Light() {
 fun PreviewInputMyBirthdayContent_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
-            InputMyBirthdayContent(isInitial = true)
+            InputBirthdayContent(isInitial = true)
         }
     }
 }

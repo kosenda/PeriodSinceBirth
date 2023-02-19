@@ -1,6 +1,6 @@
 package ksnd.periodsincebirth.middleware
 
-import ksnd.periodsincebirth.actions.InputBirthdayAction
+import ksnd.periodsincebirth.actions.InputDateAction
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.util.makeBirthday
 import org.reduxkotlin.Dispatcher
@@ -8,7 +8,7 @@ import org.reduxkotlin.Middleware
 import org.reduxkotlin.TypedStore
 import timber.log.Timber
 
-class InputBirthdayMiddleware : Middleware<State> {
+class InputDateMiddleware : Middleware<State> {
 
     override fun invoke(
         store: TypedStore<State, Any>,
@@ -16,10 +16,10 @@ class InputBirthdayMiddleware : Middleware<State> {
         { action ->
             next(action)
             when (action) {
-                is InputBirthdayAction.CheckInput -> {
+                is InputDateAction.CheckInput -> {
                     val birthday = makeBirthday(action.year, action.month, action.day)
-                    next(InputBirthdayAction.SetBirthday(birthday = birthday))
-                    Timber.i(birthday.toString())
+                    next(InputDateAction.SetBirthday(date = birthday))
+                    Timber.i("入力された生年月日: %s".format(birthday.toString()))
                 }
                 else -> {}
             }

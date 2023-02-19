@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import ksnd.periodsincebirth.reducer.appReducer
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
 import ksnd.periodsincebirth.state.AppState
-import ksnd.periodsincebirth.state.InputBirthdayState
+import ksnd.periodsincebirth.state.InputDateState
 import ksnd.periodsincebirth.state.SettingState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
@@ -20,7 +20,7 @@ fun PreviewStoreProvider(content: @Composable (Store<State>.() -> Unit)) {
             reducer = combineReducers(appReducer, inputBirthdayReducer),
             preloadedState = State(
                 appState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-                inputBirthdayState = InputBirthdayState(year = "", month = "", day = ""),
+                inputDateState = InputDateState(year = "", month = "", day = ""),
                 settingState = SettingState(theme = Theme.AUTO, language = ""),
             ),
         ),
