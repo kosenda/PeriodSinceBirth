@@ -47,7 +47,7 @@ fun SettingThemeContent(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         ),
-        modifier = Modifier.padding(vertical = 8.dp).clip(MaterialTheme.shapes.medium),
+        modifier = Modifier.padding(vertical = 8.dp),
     ) {
         modeRadioResourceTripleList.forEach { resource ->
             val (theme, displayThemeName, painter) = resource

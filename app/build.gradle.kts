@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
@@ -121,6 +122,9 @@ dependencies {
 
     // Test Coroutine
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    // OSS Licenses Gradle Plugin
+    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {

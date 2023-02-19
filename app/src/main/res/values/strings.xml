@@ -1,13 +1,6 @@
 <resources>
+    <!-- PeriodSinceBirth -->
     <string name="app_name">PeriodSinceBirth</string>
-    <string name="year">Year</string>
-    <string name="month">Month</string>
-    <string name="day">Day</string>
-    <string name="register">Register</string>
-    <string name="change">Change</string>
-    <string name="register_birth_date">Register birth date</string>
-    <string name="welcome">WELCOME!!</string>
-    <string name="can_be_changed">※ It can be changed later.</string>
     <string name="birth_date">Birth date</string>
     <string name="years">Years</string>
     <string name="months">Months</string>
@@ -18,8 +11,39 @@
     <string name="approximately">Approx.</string>
     <string name="since_birth">Since birth …</string>
     <string name="loading">loading…</string>
+
+    <!-- Input -->
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="day">Day</string>
+    <string name="register">Register</string>
+    <string name="change">Change</string>
+    <string name="register_birth_date">Register birth date</string>
+    <string name="welcome">WELCOME!!</string>
+    <string name="can_be_changed">※ It can be changed later.</string>
+
+    <!-- Settings -->
     <string name="theme_setting">Theme</string>
     <string name="dark_mode">Dark</string>
     <string name="light_mode">Light</string>
     <string name="auto_mode">Auto</string>
+
+    <!-- Info -->
+    <string name="url_title">URL</string>
+    <string name="version_title">App Version</string>
+    <string name="app_info_title">App Info</string>
+    <string name="app_name_title">App Name</string>
+    <string name="developer_info_title">Developer Info</string>
+    <string name="developer_name_title">Developer Name</string>
+    <string name="licenses_title">Licenses</string>
+
+
+    <!-- Not Translatable -->
+    <string name="google_play" translatable="false">Google Play</string>
+    <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=ksnd.periodsincebirth</string>
+    <string name="github" translatable="false">Github</string>
+    <string name="github_url" translatable="false">https://github.com/kosenda/PeriodSinceBirth</string>
+    <string name="developer_name" translatable="false">KSND</string>
+    <string name="oss_licenses" translatable="false">OSS Licenses</string>
+
 </resources>

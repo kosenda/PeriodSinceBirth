@@ -62,6 +62,7 @@ fun NavScreen() {
                 SettingScreen()
             }
             composable(NavigationItems.Info.route) {
+                InfoScreen()
             }
         }
     }
