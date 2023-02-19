@@ -8,6 +8,7 @@ import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import ksnd.periodsincebirth.MainDispatcherRule
+import ksnd.periodsincebirth.Theme
 import ksnd.periodsincebirth.util.makeBirthday
 import org.junit.Rule
 import org.junit.Test
@@ -27,6 +28,7 @@ class DataStoreRepositoryImplTest {
         ),
     )
 
+    // ■ fetchBirthday / updateBirthday
     @Test
     fun dataStoreRepository_initialFetchBirthday_isNull() {
         // 初期値はNullであること
@@ -46,7 +48,7 @@ class DataStoreRepositoryImplTest {
     }
 
     @Test
-    fun dataStoreRepository_updateThreeTimes_isChange() {
+    fun dataStoreRepository_updateBirthdayThreeTimes_isChange() {
         // ３回更新し、全てで取得できる値が変わっていること
         mainDispatcherRule.testScope.runTest {
             val firstBirthday = makeBirthday(year = "2000", month = "1", day = "1").toString()
@@ -62,4 +64,35 @@ class DataStoreRepositoryImplTest {
         }
     }
 
+
+    // ■ selectedTheme / updateTheme
+    @Test
+    fun dataStoreRepository_initialSelectedTheme_isAuto() {
+        // 初期値はAutoであること
+        mainDispatcherRule.testScope.runTest {
+            assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.AUTO)
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateTheme_isChanged() {
+        // 更新をした後に取得した値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateTheme(newTheme = Theme.LIGHT)
+            assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.LIGHT)
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateThemeThreeTimes_isChange() {
+        // ３回更新し、全てで取得できる値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateTheme(newTheme = Theme.NIGHT)
+            assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.NIGHT)
+            dataStoreRepositoryImpl.updateTheme(newTheme = Theme.AUTO)
+            assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.AUTO)
+            dataStoreRepositoryImpl.updateTheme(newTheme = Theme.LIGHT)
+            assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.LIGHT)
+        }
+    }
 }
