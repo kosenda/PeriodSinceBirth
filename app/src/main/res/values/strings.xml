@@ -43,7 +43,7 @@
     <!-- Not Translatable -->
     <string name="google_play" translatable="false">Google Play</string>
     <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=ksnd.periodsincebirth</string>
-    <string name="github" translatable="false">Github</string>
+    <string name="github" translatable="false">GitHub</string>
     <string name="github_url" translatable="false">https://github.com/kosenda/PeriodSinceBirth</string>
     <string name="developer_name" translatable="false">KSND</string>
     <string name="oss_licenses" translatable="false">OSS Licenses</string>
