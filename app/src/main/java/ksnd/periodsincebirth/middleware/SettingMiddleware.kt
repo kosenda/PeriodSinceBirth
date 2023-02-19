@@ -22,21 +22,17 @@ class SettingMiddleware @Inject constructor(
         { action ->
             next(action)
             when (action) {
-                is SettingAction.FetchTheme -> {
+                is SettingAction.FetchSettings -> {
                     CoroutineScope(ioDispatcher).launch {
                         val selectedTheme = dataStoreRepository.selectedTheme()
+                        val useAnimationText = dataStoreRepository.fetchUseAnimationText()
                         next(SettingAction.SetTheme(selectedTheme))
+                        next(SettingAction.SetUseAnimationText(useAnimationText))
                     }
                 }
                 is SettingAction.ChangeTheme -> {
                     CoroutineScope(ioDispatcher).launch {
                         dataStoreRepository.updateTheme(newTheme = action.theme)
-                    }
-                }
-                is SettingAction.FetchUseAnimationText -> {
-                    CoroutineScope(ioDispatcher).launch {
-                        val useAnimationText = dataStoreRepository.fetchUseAnimationText()
-                        next(SettingAction.SetUseAnimationText(useAnimationText))
                     }
                 }
                 is SettingAction.SwitchAnimationText -> {

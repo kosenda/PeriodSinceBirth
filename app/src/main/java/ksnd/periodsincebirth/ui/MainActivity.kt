@@ -30,8 +30,7 @@ class MainActivity : ComponentActivity() {
                 val dispatch = rememberDispatcher()
 
                 LaunchedEffect(Unit) {
-                    dispatch(SettingAction.FetchTheme)
-                    dispatch(SettingAction.FetchUseAnimationText)
+                    dispatch(SettingAction.FetchSettings)
                 }
 
                 PeriodSinceBirthTheme(

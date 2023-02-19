@@ -10,10 +10,9 @@ val settingReducer: Reducer<State> =
         state.run {
             copy(
                 settingState = when (action) {
-                    is SettingAction.FetchTheme -> settingState
+                    is SettingAction.FetchSettings -> settingState
                     is SettingAction.SetTheme -> settingState.copy(theme = action.theme)
                     is SettingAction.ChangeTheme -> settingState.copy(theme = action.theme)
-                    is SettingAction.FetchUseAnimationText -> settingState
                     is SettingAction.SetUseAnimationText ->
                         settingState.copy(useAnimationText = action.useAnimate)
                     is SettingAction.SwitchAnimationText ->
