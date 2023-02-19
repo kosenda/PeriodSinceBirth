@@ -36,9 +36,9 @@ fun SwitchWithText(
     ) {
         Text(
             text = text,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.padding(start = 8.dp).weight(1f),
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Switch(checked = checked, onCheckedChange = onCheckedChange)
     }

@@ -27,6 +27,8 @@
     <string name="dark_mode">Dark</string>
     <string name="light_mode">Light</string>
     <string name="auto_mode">Auto</string>
+    <string name="language_setting">Language</string>
+    <string name="select_language">Select language</string>
     <string name="other_settings">Other</string>
     <string name="animation_text">Animation text</string>
 

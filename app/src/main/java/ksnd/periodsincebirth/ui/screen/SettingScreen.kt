@@ -18,6 +18,7 @@ import ksnd.periodsincebirth.actions.SettingAction
 import ksnd.periodsincebirth.state.SettingState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
+import ksnd.periodsincebirth.ui.content.SettingLanguageContent
 import ksnd.periodsincebirth.ui.content.SettingOtherContent
 import ksnd.periodsincebirth.ui.content.SettingThemeContent
 import ksnd.periodsincebirth.ui.parts.TopBar
@@ -51,6 +52,7 @@ fun SettingScreen() {
                 onRadioButtonClick = { new -> dispatch(SettingAction.ChangeTheme(new)) },
                 isSelectedNum = { theme -> theme == settingState.theme },
             )
+            SettingLanguageContent()
             SettingOtherContent()
         }
     }

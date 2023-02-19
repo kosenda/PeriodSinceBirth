@@ -49,7 +49,7 @@ fun CustomRadioButton(
         Image(
             painter = painter,
             contentDescription = buttonText,
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.tertiary),
             contentScale = ContentScale.Fit,
             modifier = Modifier.size(24.dp),
         )
@@ -59,7 +59,7 @@ fun CustomRadioButton(
                 .padding(start = 12.dp)
                 .weight(1f),
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         RadioButton(
             selected = isSelected,
