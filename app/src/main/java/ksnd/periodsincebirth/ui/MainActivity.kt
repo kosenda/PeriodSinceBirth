@@ -16,10 +16,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val mainStore: MainStore = hiltViewModel()
-            PeriodSinceBirthTheme {
-                StoreProvider(
-                    store = mainStore.store,
-                ) {
+            StoreProvider(
+                store = mainStore.store,
+            ) {
+                PeriodSinceBirthTheme {
                     FirstScreen()
                 }
             }
