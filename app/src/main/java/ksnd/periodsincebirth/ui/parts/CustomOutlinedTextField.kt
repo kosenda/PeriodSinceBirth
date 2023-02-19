@@ -7,6 +7,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -14,7 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,7 +29,9 @@ fun CustomOutlinedTextField(
 ) {
     val focusManager = LocalFocusManager.current
     OutlinedTextField(
-        modifier = modifier.padding(top = 8.dp).fillMaxWidth(),
+        modifier = modifier
+            .padding(top = 8.dp)
+            .fillMaxWidth(),
         value = text,
         textStyle = MaterialTheme.typography.bodyLarge,
         colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -46,4 +51,24 @@ fun CustomOutlinedTextField(
             )
         },
     )
+}
+
+@Preview
+@Composable
+private fun PreviewCustomOutlinedTextField_Light() {
+    PeriodSinceBirthTheme(isDarkTheme = false) {
+        Surface(color = MaterialTheme.colorScheme.surface) {
+            CustomOutlinedTextField(text = "text", labelText = "label", onValueChange = {})
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCustomOutlinedTextField_Dark() {
+    PeriodSinceBirthTheme(isDarkTheme = true) {
+        Surface(color = MaterialTheme.colorScheme.surface) {
+            CustomOutlinedTextField(text = "text", labelText = "label", onValueChange = {})
+        }
+    }
 }

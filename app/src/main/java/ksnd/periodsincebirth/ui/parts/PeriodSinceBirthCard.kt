@@ -105,7 +105,7 @@ fun PeriodSinceBirthCard(birthday: ZonedDateTime) {
 
 @Preview
 @Composable
-fun PreviewPeriodSinceBirthCard_Light() {
+private fun PreviewPeriodSinceBirthCard_Light() {
     PeriodSinceBirthTheme(isDarkTheme = false) {
         PeriodSinceBirthCard(birthday = makeBirthday(year = "2000", month = "1", day = "1")!!)
     }
@@ -113,7 +113,7 @@ fun PreviewPeriodSinceBirthCard_Light() {
 
 @Preview
 @Composable
-fun PreviewPeriodSinceBirthCard_Dark() {
+private fun PreviewPeriodSinceBirthCard_Dark() {
     PeriodSinceBirthTheme(isDarkTheme = true) {
         PeriodSinceBirthCard(birthday = makeBirthday(year = "2000", month = "1", day = "1")!!)
     }

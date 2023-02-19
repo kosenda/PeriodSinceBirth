@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +27,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ksnd.periodsincebirth.R
+import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 
 @Composable
 fun CustomRadioButton(
@@ -69,11 +71,30 @@ fun CustomRadioButton(
 
 @Preview
 @Composable
-private fun PreviewCustomThemeRadioButton() {
-    CustomRadioButton(
-        buttonText = stringResource(id = R.string.dark_mode),
-        isSelected = true,
-        painter = painterResource(id = R.drawable.baseline_brightness_auto_24),
-        onClick = {},
-    )
+private fun PreviewCustomThemeRadioButton_Light() {
+    PeriodSinceBirthTheme(isDarkTheme = false) {
+        Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
+            CustomRadioButton(
+                buttonText = stringResource(id = R.string.dark_mode),
+                isSelected = true,
+                painter = painterResource(id = R.drawable.baseline_brightness_auto_24),
+                onClick = {},
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCustomThemeRadioButton_Dark() {
+    PeriodSinceBirthTheme(isDarkTheme = true) {
+        Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
+            CustomRadioButton(
+                buttonText = stringResource(id = R.string.dark_mode),
+                isSelected = true,
+                painter = painterResource(id = R.drawable.baseline_brightness_auto_24),
+                onClick = {},
+            )
+        }
+    }
 }

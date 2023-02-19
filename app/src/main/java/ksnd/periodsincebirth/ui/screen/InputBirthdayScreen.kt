@@ -160,7 +160,7 @@ fun InputBirthdayContent(
 
 @Preview
 @Composable
-private fun PreviewInputMyBirthdayContent_Initial_Light() {
+private fun PreviewInputBirthdayContent_Initial_Light() {
     PreviewStoreProvider {
         PeriodSinceBirthTheme(isDarkTheme = false) {
             Surface(color = MaterialTheme.colorScheme.surface) {
@@ -172,7 +172,7 @@ private fun PreviewInputMyBirthdayContent_Initial_Light() {
 
 @Preview
 @Composable
-fun PreviewInputMyBirthdayContent_Initial_Dark() {
+private fun PreviewInputBirthdayContent_Initial_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
             InputBirthdayContent(isInitial = true)
@@ -182,7 +182,7 @@ fun PreviewInputMyBirthdayContent_Initial_Dark() {
 
 @Preview
 @Composable
-fun PreviewInputMyBirthdayContent_Light() {
+private fun PreviewInputBirthdayContent_Light() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
             InputBirthdayContent(isInitial = false)
@@ -192,7 +192,7 @@ fun PreviewInputMyBirthdayContent_Light() {
 
 @Preview
 @Composable
-fun PreviewInputMyBirthdayContent_Dark() {
+private fun PreviewInputBirthdayContent_Dark() {
     PreviewStoreProvider {
         Surface(color = MaterialTheme.colorScheme.surface) {
             InputBirthdayContent(isInitial = true)

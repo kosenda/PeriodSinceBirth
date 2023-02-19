@@ -72,7 +72,7 @@ fun CustomTextButton(
 
 @Preview
 @Composable
-fun PreviewCustomButton_Light() {
+private fun PreviewCustomButton_Light() {
     PeriodSinceBirthTheme(isDarkTheme = false) {
         Surface(color = MaterialTheme.colorScheme.surface) {
             CustomTextButton(text = stringResource(R.string.oss_licenses), onClick = {})
@@ -82,7 +82,7 @@ fun PreviewCustomButton_Light() {
 
 @Preview
 @Composable
-fun PreviewCustomButton_Dark() {
+private fun PreviewCustomButton_Dark() {
     PeriodSinceBirthTheme(isDarkTheme = true) {
         Surface(color = MaterialTheme.colorScheme.surface) {
             CustomTextButton(text = stringResource(R.string.oss_licenses), onClick = {})

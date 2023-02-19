@@ -2,6 +2,7 @@ package ksnd.periodsincebirth.ui.parts
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,9 +39,11 @@ fun InfoItemBody(text: String, modifier: Modifier = Modifier) {
 @Composable
 private fun PreviewInfoItem_Light() {
     PeriodSinceBirthTheme(isDarkTheme = false) {
-        Column {
-            InfoItemTitle(text = "TITLE")
-            InfoItemBody(text = "BODY")
+        Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
+            Column {
+                InfoItemTitle(text = "TITLE")
+                InfoItemBody(text = "BODY")
+            }
         }
     }
 }
@@ -49,9 +52,11 @@ private fun PreviewInfoItem_Light() {
 @Composable
 private fun PreviewInfoItem_Dark() {
     PeriodSinceBirthTheme(isDarkTheme = true) {
-        Column {
-            InfoItemTitle(text = "TITLE")
-            InfoItemBody(text = "BODY")
+        Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
+            Column {
+                InfoItemTitle(text = "TITLE")
+                InfoItemBody(text = "BODY")
+            }
         }
     }
 }

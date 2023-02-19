@@ -64,7 +64,7 @@ fun DeveloperInfoContent() {
 
 @Preview
 @Composable
-fun PreviewDeveloperInfoContent_Light() {
+private fun PreviewDeveloperInfoContent_Light() {
     PeriodSinceBirthTheme(isDarkTheme = false) {
         DeveloperInfoContent()
     }
@@ -72,7 +72,7 @@ fun PreviewDeveloperInfoContent_Light() {
 
 @Preview
 @Composable
-fun PreviewDeveloperInfoContent_Dark() {
+private fun PreviewDeveloperInfoContent_Dark() {
     PeriodSinceBirthTheme(isDarkTheme = true) {
         DeveloperInfoContent()
     }

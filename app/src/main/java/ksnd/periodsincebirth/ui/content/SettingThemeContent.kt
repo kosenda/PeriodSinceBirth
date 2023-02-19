@@ -6,15 +6,17 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.R
 import ksnd.periodsincebirth.Theme
 import ksnd.periodsincebirth.ui.parts.CustomRadioButton
 import ksnd.periodsincebirth.ui.parts.TitleCard
+import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 
 @Composable
 fun SettingThemeContent(
@@ -57,6 +59,26 @@ fun SettingThemeContent(
                 painter = painter,
                 onClick = { onRadioButtonClick(theme) },
             )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSettingThemeContent_Light() {
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = false) {
+            SettingThemeContent(onRadioButtonClick = {}, isSelectedNum = { true })
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSettingThemeContent_Dark() {
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = true) {
+            SettingThemeContent(onRadioButtonClick = {}, isSelectedNum = { true })
         }
     }
 }

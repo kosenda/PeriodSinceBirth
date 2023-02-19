@@ -10,7 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.PreviewStoreProvider
 import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.actions.SettingAction
 import ksnd.periodsincebirth.state.SettingState
@@ -18,6 +20,7 @@ import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.content.SettingThemeContent
 import ksnd.periodsincebirth.ui.parts.TopBar
+import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
@@ -47,6 +50,26 @@ fun SettingScreen() {
                 onRadioButtonClick = { new -> dispatch(SettingAction.ChangeTheme(new)) },
                 isSelectedNum = { theme -> theme == settingState.theme },
             )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSettingScreen_Light() {
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = false) {
+            SettingScreen()
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSettingScreen_Dark() {
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = true) {
+            SettingScreen()
         }
     }
 }
