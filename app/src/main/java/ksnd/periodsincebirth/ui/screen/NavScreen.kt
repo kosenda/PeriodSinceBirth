@@ -51,7 +51,7 @@ fun NavScreen() {
                 InputBirthdayContent(isInitial = true)
             }
             composable(NavigationItems.ChangeBirthday.route) {
-                InputBirthdayContent(isInitial = false, savedBirthday = appState.birthday,)
+                InputBirthdayContent(isInitial = false, savedBirthday = appState.birthday)
             }
             composable(NavigationItems.PeriodSinceBirth.route) {
                 PeriodSinceBirthScreen(birthday = appState.birthday)

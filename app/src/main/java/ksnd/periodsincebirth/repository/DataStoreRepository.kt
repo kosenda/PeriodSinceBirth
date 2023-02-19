@@ -43,7 +43,6 @@ class DataStoreRepositoryImpl @Inject constructor(
         dataStore.edit { it[PreferencesKey.BIRTHDAY] = newBirthday }
     }
 
-
     override suspend fun selectedTheme(): Theme {
         val selectedThemeNum = dataStore
             .data
@@ -58,7 +57,7 @@ class DataStoreRepositoryImpl @Inject constructor(
                 preferences[PreferencesKey.THEME_NUM] ?: Theme.AUTO.num
             }
             .first()
-        return when(selectedThemeNum) {
+        return when (selectedThemeNum) {
             Theme.NIGHT.num -> Theme.NIGHT
             Theme.LIGHT.num -> Theme.LIGHT
             Theme.AUTO.num -> Theme.AUTO
@@ -93,5 +92,4 @@ class DataStoreRepositoryImpl @Inject constructor(
     override suspend fun updateTheme(newTheme: Theme) {
         dataStore.edit { it[PreferencesKey.THEME_NUM] = newTheme.num }
     }
-
 }

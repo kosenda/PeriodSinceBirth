@@ -64,7 +64,6 @@ class DataStoreRepositoryImplTest {
         }
     }
 
-
     // ■ selectedTheme / updateTheme
     @Test
     fun dataStoreRepository_initialSelectedTheme_isAuto() {
@@ -95,7 +94,6 @@ class DataStoreRepositoryImplTest {
             assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.LIGHT)
         }
     }
-
 
     // ■ fetchUseAnimationText / updateUseAnimationText
     @Test

@@ -19,7 +19,7 @@ fun SettingLanguageContent() {
     )
     CustomTextButton(
         text = stringResource(id = R.string.select_language),
-        onClick = { /* Dialogを表示して言語を選択できるようにする */ }
+        onClick = { /* Dialogを表示して言語を選択できるようにする */ },
     )
 }
 

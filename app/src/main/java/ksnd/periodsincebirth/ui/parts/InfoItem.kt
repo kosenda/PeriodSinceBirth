@@ -23,7 +23,6 @@ fun InfoItemTitle(text: String, modifier: Modifier = Modifier) {
     )
 }
 
-
 @Composable
 fun InfoItemBody(text: String, modifier: Modifier = Modifier) {
     Text(

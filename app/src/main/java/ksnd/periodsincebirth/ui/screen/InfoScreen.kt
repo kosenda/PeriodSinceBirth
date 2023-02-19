@@ -67,6 +67,3 @@ private fun PreviewInfoScreen_Dark() {
         }
     }
 }
-
-
-

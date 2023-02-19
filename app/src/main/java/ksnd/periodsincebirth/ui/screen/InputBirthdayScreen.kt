@@ -152,7 +152,9 @@ fun InputBirthdayContent(
                 onClick = {
                     inputBirthdayState.birthday?.let {
                         dispatch(AppAction.ChangeBirthday(it))
-                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth)) }},
+                        dispatch(AppAction.TransitionScreen(NavigationItems.PeriodSinceBirth))
+                    } 
+                },
             )
         }
     }
