@@ -33,6 +33,17 @@ class SettingMiddleware @Inject constructor(
                         dataStoreRepository.updateTheme(newTheme = action.theme)
                     }
                 }
+                is SettingAction.FetchUseAnimationText -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        val useAnimationText = dataStoreRepository.fetchUseAnimationText()
+                        next(SettingAction.SetUseAnimationText(useAnimationText))
+                    }
+                }
+                is SettingAction.SwitchAnimationText -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        dataStoreRepository.updateUseAnimationText(useAnimation = action.useAnimate)
+                    }
+                }
                 else -> {}
             }
         }

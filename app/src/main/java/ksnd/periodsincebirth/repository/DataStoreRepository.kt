@@ -18,6 +18,8 @@ interface DataStoreRepository {
     suspend fun updateBirthday(newBirthday: String)
     suspend fun updateTheme(newTheme: Theme)
     suspend fun selectedTheme(): Theme
+    suspend fun fetchUseAnimationText(): Boolean
+    suspend fun updateUseAnimationText(useAnimation: Boolean)
 }
 
 class DataStoreRepositoryImpl @Inject constructor(
@@ -65,6 +67,27 @@ class DataStoreRepositoryImpl @Inject constructor(
                 Theme.AUTO
             }
         }
+    }
+
+    override suspend fun fetchUseAnimationText(): Boolean {
+        val useAnimationText = dataStore
+            .data
+            .catch { exception ->
+                Timber.i(exception)
+                emit(emptyPreferences())
+            }
+            .map { preferences ->
+                preferences[PreferencesKey.USE_ANIMATION_TEXT]
+            }
+            .first()
+        return when (useAnimationText) {
+            null -> true
+            else -> useAnimationText
+        }
+    }
+
+    override suspend fun updateUseAnimationText(useAnimation: Boolean) {
+        dataStore.edit { it[PreferencesKey.USE_ANIMATION_TEXT] = useAnimation }
     }
 
     override suspend fun updateTheme(newTheme: Theme) {

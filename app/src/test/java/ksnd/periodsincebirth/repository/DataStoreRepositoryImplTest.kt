@@ -84,7 +84,7 @@ class DataStoreRepositoryImplTest {
     }
 
     @Test
-    fun dataStoreRepository_updateThemeThreeTimes_isChange() {
+    fun dataStoreRepository_updateThreeTimes_isChange() {
         // ３回更新し、全てで取得できる値が変わっていること
         mainDispatcherRule.testScope.runTest {
             dataStoreRepositoryImpl.updateTheme(newTheme = Theme.NIGHT)
@@ -93,6 +93,38 @@ class DataStoreRepositoryImplTest {
             assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.AUTO)
             dataStoreRepositoryImpl.updateTheme(newTheme = Theme.LIGHT)
             assertThat(dataStoreRepositoryImpl.selectedTheme()).isEqualTo(Theme.LIGHT)
+        }
+    }
+
+
+    // ■ fetchUseAnimationText / updateUseAnimationText
+    @Test
+    fun dataStoreRepository_initialUseAnimationText_isAuto() {
+        // 初期値はTrue(アニメーション付き)であること
+        mainDispatcherRule.testScope.runTest {
+            assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isTrue()
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateUseAnimationText_isChanged() {
+        // 更新をした後に取得した値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateUseAnimationText(useAnimation = false)
+            assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isFalse()
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateUseAnimationTextThreeTimes_isChange() {
+        // ３回更新し、全てで取得できる値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateUseAnimationText(useAnimation = false)
+            assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isFalse()
+            dataStoreRepositoryImpl.updateUseAnimationText(useAnimation = true)
+            assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isTrue()
+            dataStoreRepositoryImpl.updateUseAnimationText(useAnimation = false)
+            assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isFalse()
         }
     }
 }

@@ -27,6 +27,8 @@
     <string name="dark_mode">Dark</string>
     <string name="light_mode">Light</string>
     <string name="auto_mode">Auto</string>
+    <string name="other_settings">Other</string>
+    <string name="animation_text">Animation text</string>
 
     <!-- Info -->
     <string name="url_title">URL</string>

@@ -21,16 +21,31 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ksnd.periodsincebirth.PreviewStoreProvider
+import ksnd.periodsincebirth.state.SettingState
+import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
+import org.reduxkotlin.compose.selectState
 
 @Composable
 fun AnimatedCountText(title: String, value: Long, duration: Int, isApprox: Boolean = false) {
     val ratio by remember { mutableStateOf(Animatable(0f)) }
+    val settingState by selectState<State, SettingState> { settingState }
     LaunchedEffect(Unit) {
-        ratio.animateTo(
-            targetValue = 1f,
-            animationSpec = tween(durationMillis = duration),
-        )
+        when {
+            settingState.useAnimationText -> {
+                ratio.animateTo(
+                    targetValue = 1f,
+                    animationSpec = tween(durationMillis = duration),
+                )
+            }
+            else -> {
+                ratio.animateTo(
+                    targetValue = 1f,
+                    animationSpec = tween(durationMillis = 0),
+                )
+            }
+        }
     }
     Row(
         modifier = Modifier.padding(top = 8.dp),
@@ -69,9 +84,11 @@ fun AnimatedCountText(title: String, value: Long, duration: Int, isApprox: Boole
 @Preview
 @Composable
 private fun PreviewAnimatedCountText_Light() {
-    PeriodSinceBirthTheme(isDarkTheme = false) {
-        Column(Modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
-            AnimatedCountText(title = "title", value = 1, duration = 0)
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = false) {
+            Column(Modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
+                AnimatedCountText(title = "title", value = 1, duration = 0)
+            }
         }
     }
 }
@@ -79,9 +96,11 @@ private fun PreviewAnimatedCountText_Light() {
 @Preview
 @Composable
 private fun PreviewAnimatedCountText_Dark() {
-    PeriodSinceBirthTheme(isDarkTheme = true) {
-        Column(Modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
-            AnimatedCountText(title = "title", value = 1, duration = 0)
+    PreviewStoreProvider {
+        PeriodSinceBirthTheme(isDarkTheme = true) {
+            Column(Modifier.background(MaterialTheme.colorScheme.surfaceVariant)) {
+                AnimatedCountText(title = "title", value = 1, duration = 0)
+            }
         }
     }
 }

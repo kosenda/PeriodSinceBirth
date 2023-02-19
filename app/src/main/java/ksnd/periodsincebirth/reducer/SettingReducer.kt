@@ -13,6 +13,11 @@ val settingReducer: Reducer<State> =
                     is SettingAction.FetchTheme -> settingState
                     is SettingAction.SetTheme -> settingState.copy(theme = action.theme)
                     is SettingAction.ChangeTheme -> settingState.copy(theme = action.theme)
+                    is SettingAction.FetchUseAnimationText -> settingState
+                    is SettingAction.SetUseAnimationText ->
+                        settingState.copy(useAnimationText = action.useAnimate)
+                    is SettingAction.SwitchAnimationText ->
+                        settingState.copy(useAnimationText = action.useAnimate)
                 },
             )
         }

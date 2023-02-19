@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
 
                 LaunchedEffect(Unit) {
                     dispatch(SettingAction.FetchTheme)
+                    dispatch(SettingAction.FetchUseAnimationText)
                 }
 
                 PeriodSinceBirthTheme(
