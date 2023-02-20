@@ -1,0 +1,46 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">生まれてから</string>
+    <string name="birth_date">誕生日</string>
+    <string name="years">年数</string>
+    <string name="months">月数</string>
+    <string name="days">日数</string>
+    <string name="hours">時数</string>
+    <string name="minutes">分数</string>
+    <string name="seconds">秒数</string>
+    <string name="approximately">おおよそ</string>
+    <string name="since_birth">生まれてから …</string>
+    <string name="loading">読み込み中…</string>
+
+    <!-- Input -->
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="register">登録</string>
+    <string name="change">更新</string>
+    <string name="register_birth_date">生年月日登録</string>
+    <string name="welcome">ようこそ！</string>
+    <string name="can_be_changed">※ 後で変更できます</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">テーマ</string>
+    <string name="dark_mode">ダークモード</string>
+    <string name="light_mode">ライトモード</string>
+    <string name="auto_mode">自動モード</string>
+    <string name="language_setting">言語</string>
+    <string name="select_language">言語設定</string>
+    <string name="other_settings">その他</string>
+    <string name="animation_text">アニメーションテキスト</string>
+
+    <!-- Info -->
+    <string name="version_title">アプリのバージョン</string>
+    <string name="app_info_title">アプリの情報</string>
+    <string name="app_name_title">アプリ名</string>
+    <string name="developer_info_title">開発者の情報</string>
+    <string name="developer_name_title">開発者名</string>
+    <string name="licenses_title">ライセンス</string>
+
+    <!-- Other -->
+    <string name="close">閉じる</string>
+
+</resources>

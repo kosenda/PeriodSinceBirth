@@ -42,7 +42,7 @@ object StoreModule {
             preloadedState = State(
                 appState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
                 inputDateState = InputDateState(year = "", month = "", day = ""),
-                settingState = SettingState(theme = Theme.AUTO, language = ""),
+                settingState = SettingState(theme = Theme.AUTO, locale = ""),
             ),
             enhancer = applyMiddleware(
                 AppMiddleware(

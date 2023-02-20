@@ -21,7 +21,7 @@ fun PreviewStoreProvider(content: @Composable (Store<State>.() -> Unit)) {
             preloadedState = State(
                 appState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
                 inputDateState = InputDateState(year = "", month = "", day = ""),
-                settingState = SettingState(theme = Theme.AUTO, language = ""),
+                settingState = SettingState(theme = Theme.AUTO, locale = ""),
             ),
         ),
         content = content,

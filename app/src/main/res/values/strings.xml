@@ -1,6 +1,6 @@
 <resources>
     <!-- PeriodSinceBirth -->
-    <string name="app_name">PeriodSinceBirth</string>
+    <string name="app_name">Period Since Birth</string>
     <string name="birth_date">Birth date</string>
     <string name="years">Years</string>
     <string name="months">Months</string>
@@ -33,13 +33,15 @@
     <string name="animation_text">Animation text</string>
 
     <!-- Info -->
-    <string name="url_title">URL</string>
     <string name="version_title">App Version</string>
     <string name="app_info_title">App Info</string>
     <string name="app_name_title">App Name</string>
     <string name="developer_info_title">Developer Info</string>
     <string name="developer_name_title">Developer Name</string>
     <string name="licenses_title">Licenses</string>
+
+    <!-- Other -->
+    <string name="close">CLOSE</string>
 
 
     <!-- Not Translatable -->
@@ -49,5 +51,13 @@
     <string name="github_url" translatable="false">https://github.com/kosenda/PeriodSinceBirth</string>
     <string name="developer_name" translatable="false">KSND</string>
     <string name="oss_licenses" translatable="false">OSS Licenses</string>
+
+    <!-- Locale Name -->
+    <string name="locale_en" translatable="false">en</string>
+    <string name="locale_ja" translatable="false">ja</string>
+
+    <!-- Display Language -->
+    <string name="display_en" translatable="false">English</string>
+    <string name="display_ja" translatable="false">日本語</string>
 
 </resources>

@@ -17,6 +17,11 @@ val settingReducer: Reducer<State> =
                         settingState.copy(useAnimationText = action.useAnimate)
                     is SettingAction.SwitchAnimationText ->
                         settingState.copy(useAnimationText = action.useAnimate)
+                    is SettingAction.OpenSelectLanguageDialog ->
+                        settingState.copy(openSelectLanguageDialog = true)
+                    is SettingAction.CloseSelectLanguageDialog ->
+                        settingState.copy(openSelectLanguageDialog = false)
+                    is SettingAction.SetLocale -> settingState.copy(locale = action.locale)
                 },
             )
         }
