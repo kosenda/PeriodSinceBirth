@@ -23,7 +23,7 @@
     <string name="can_be_changed">※ Daha sonra değiştirebilirsiniz</string>
 
     <!-- Settings -->
-    <string name="theme_setting">Theme</string>
+    <string name="theme_setting">Tema</string>
     <string name="dark_mode">Karanlık mod</string>
     <string name="light_mode">Işık modu</string>
     <string name="auto_mode">Otomatik mod</string>
