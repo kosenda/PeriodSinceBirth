@@ -55,9 +55,17 @@
     <!-- Locale Name -->
     <string name="locale_en" translatable="false">en</string>
     <string name="locale_ja" translatable="false">ja</string>
+    <string name="locale_zh_tw" translatable="false">zh-TW</string>
+    <string name="locale_tr" translatable="false">tr</string>
+    <string name="locale_vi" translatable="false">vi</string>
+    <string name="locale_it" translatable="false">it</string>
 
     <!-- Display Language -->
     <string name="display_en" translatable="false">English</string>
     <string name="display_ja" translatable="false">日本語</string>
+    <string name="display_zh_tw" translatable="false">繁體中文</string>
+    <string name="display_tr" translatable="false">Türkçe</string>
+    <string name="display_vi" translatable="false">Tiếng Việt</string>
+    <string name="display_it" translatable="false">Italiano</string>
 
 </resources>

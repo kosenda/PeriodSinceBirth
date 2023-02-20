@@ -30,11 +30,17 @@ fun LanguageCard(
     onClick: () -> Unit,
 ) {
     val buttonScaleState = rememberButtonScaleState()
-    val quarterScreenWidth = (LocalConfiguration.current.screenWidthDp / 4).dp
+    val cardHeight = LocalConfiguration.current.run {
+        when {
+            screenHeightDp > screenWidthDp -> (screenWidthDp / 4).dp
+            else -> (screenHeightDp / 4).dp
+        }
+    }
+
     Card(
         modifier = modifier
             .padding(all = 4.dp)
-            .height(quarterScreenWidth)
+            .height(cardHeight)
             .scale(scale = buttonScaleState.animationScale.value)
             .clickable(
                 interactionSource = buttonScaleState.interactionSource,
@@ -55,7 +61,7 @@ fun LanguageCard(
             Text(
                 text = displayLanguage,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
                 color = when {
                     isSelected -> MaterialTheme.colorScheme.secondaryContainer
                     else -> MaterialTheme.colorScheme.onSecondaryContainer

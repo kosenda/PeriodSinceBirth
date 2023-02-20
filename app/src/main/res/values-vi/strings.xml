@@ -1,0 +1,46 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">Từ khi sinh ra</string>
+    <string name="birth_date">Sinh nhật</string>
+    <string name="years">năm</string>
+    <string name="months">tháng</string>
+    <string name="days"><n> </n>gày</string>
+    <string name="hours">giờ</string>
+    <string name="minutes">phút</string>
+    <string name="seconds">giây</string>
+    <string name="approximately">xấp xỉ</string>
+    <string name="since_birth">Từ khi tôi sinh ra …</string>
+    <string name="loading">Đang tải…</string>
+
+    <!-- Input -->
+    <string name="year">năm</string>
+    <string name="month">tháng</string>
+    <string name="day">ngày</string>
+    <string name="register">Đăng ký</string>
+    <string name="change">Cập nhật</string>
+    <string name="register_birth_date">Đăng ký ngày sinh</string>
+    <string name="welcome">Xin chào！</string>
+    <string name="can_be_changed">※ Có thể thay đổi sau</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">Chủ đề</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="light_mode">Chế độ ánh sáng</string>
+    <string name="auto_mode">Chế độ tự động</string>
+    <string name="language_setting">Ngôn ngữ</string>
+    <string name="select_language">Tùy chọn ngôn ngữ</string>
+    <string name="other_settings">Khác</string>
+    <string name="animation_text">Văn bản động</string>
+
+    <!-- Info -->
+    <string name="version_title">Phiên bản ứng dụng</string>
+    <string name="app_info_title">Thông tin ứng dụng</string>
+    <string name="app_name_title">Tên ứng dụng</string>
+    <string name="developer_info_title">Thông tin nhà phát triển</string>
+    <string name="developer_name_title">Tên nhà phát triển</string>
+    <string name="licenses_title">Giấy phép</string>
+
+    <!-- Other -->
+    <string name="close">Đóng</string>
+
+</resources>

@@ -1,0 +1,46 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">Doğumdan Beri</string>
+    <string name="birth_date">Doğum tarihi</string>
+    <string name="years">yıl sayısı</string>
+    <string name="months">Ay sayısı</string>
+    <string name="days">Gün sayısı</string>
+    <string name="hours">saat sayısı</string>
+    <string name="minutes">kesir</string>
+    <string name="seconds">saniye sayısı</string>
+    <string name="approximately">Yaklaşık</string>
+    <string name="since_birth">Doğumdan beri …</string>
+    <string name="loading">Yükleniyor…</string>
+
+    <!-- Input -->
+    <string name="year">Yıl</string>
+    <string name="month">ay</string>
+    <string name="day">Gün</string>
+    <string name="register">Kayıt</string>
+    <string name="change">güncelleme</string>
+    <string name="register_birth_date">Doğum tarihini kaydet</string>
+    <string name="welcome">Hoş geldiniz！</string>
+    <string name="can_be_changed">※ Daha sonra değiştirebilirsiniz</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">Theme</string>
+    <string name="dark_mode">Karanlık mod</string>
+    <string name="light_mode">Işık modu</string>
+    <string name="auto_mode">Otomatik mod</string>
+    <string name="language_setting">Dil</string>
+    <string name="select_language">Dil ayarı</string>
+    <string name="other_settings">Diğer</string>
+    <string name="animation_text">Animasyon metni</string>
+
+    <!-- Info -->
+    <string name="version_title">Uygulama sürümü</string>
+    <string name="app_info_title">Uygulama bilgisi</string>
+    <string name="app_name_title">Uygulama adı</string>
+    <string name="developer_info_title">Geliştirici bilgileri</string>
+    <string name="developer_name_title">Geliştirici adı</string>
+    <string name="licenses_title">Lisans</string>
+
+    <!-- Other -->
+    <string name="close">Kapat</string>
+
+</resources>

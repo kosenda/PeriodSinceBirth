@@ -1,9 +1,7 @@
 package ksnd.periodsincebirth.ui.content
 
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -24,9 +22,6 @@ import org.reduxkotlin.compose.selectState
 fun SettingLanguageContent() {
     val dispatch = rememberDispatcher()
     val settingState by selectState<State, SettingState> { settingState }
-    LaunchedEffect(Unit) {
-        println(AppCompatDelegate.getApplicationLocales())
-    }
     TitleCard(
         text = stringResource(id = R.string.language_setting),
         painter = painterResource(id = R.drawable.baseline_language_24),

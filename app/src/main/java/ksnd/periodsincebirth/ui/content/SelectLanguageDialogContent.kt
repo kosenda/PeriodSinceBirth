@@ -42,11 +42,15 @@ fun SelectLanguageDialogContent() {
     val languagePair = listOf(
         stringResource(id = R.string.locale_en) to stringResource(id = R.string.display_en),
         stringResource(id = R.string.locale_ja) to stringResource(id = R.string.display_ja),
+        stringResource(id = R.string.locale_zh_tw) to stringResource(id = R.string.display_zh_tw),
+        stringResource(id = R.string.locale_tr) to stringResource(id = R.string.display_tr),
+        stringResource(id = R.string.locale_vi) to stringResource(id = R.string.display_vi),
+        stringResource(id = R.string.locale_it) to stringResource(id = R.string.display_it),
     )
 
     LaunchedEffect(Unit) {
         val locale = AppCompatDelegate.getApplicationLocales()[0]
-        locale?.let { dispatch(SettingAction.SetLocale(locale = it.language)) }
+        locale?.let { dispatch(SettingAction.SetLocale(locale = it.toLanguageTag())) }
     }
 
     Scaffold(

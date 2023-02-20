@@ -1,0 +1,46 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">Dalla nascita</string>
+    <string name="birth_date">Data di nascita</string>
+    <string name="years">Anni</string>
+    <string name="months">Mesi</string>
+    <string name="days">Giorni</string>
+    <string name="hours">Ore</string>
+    <string name="minutes">Minuti</string>
+    <string name="seconds">Secondi</string>
+    <string name="approximately">Approssimativamente</string>
+    <string name="since_birth">Dalla nascita …</string>
+    <string name="loading">Caricamento…</string>
+
+    <!-- Input -->
+    <string name="year">Anno</string>
+    <string name="month">Mese</string>
+    <string name="day">Giorno</string>
+    <string name="register">Registrarsi</string>
+    <string name="change">aggiornamento</string>
+    <string name="register_birth_date">Registra la tua data di nascita</string>
+    <string name="welcome">Benvenuto！</string>
+    <string name="can_be_changed">※ Puoi cambiarla in seguito</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">Tema</string>
+    <string name="dark_mode">Modalità scura</string>
+    <string name="light_mode">Modalità luce</string>
+    <string name="auto_mode">Modalità automatica</string>
+    <string name="language_setting">Lingua</string>
+    <string name="select_language">Impostazione della lingua</string>
+    <string name="other_settings">Altro</string>
+    <string name="animation_text">Testo dell\'animazione</string>
+
+    <!-- Info -->
+    <string name="version_title">Versione dell\'app</string>
+    <string name="app_info_title">nformazioni sull\'app</string>
+    <string name="app_name_title">Nome dell\'app</string>
+    <string name="developer_info_title">Informazioni sullo sviluppatore</string>
+    <string name="developer_name_title">Nome sviluppatore</string>
+    <string name="licenses_title">Licenza</string>
+
+    <!-- Other -->
+    <string name="close">Chiudi</string>
+
+</resources>
