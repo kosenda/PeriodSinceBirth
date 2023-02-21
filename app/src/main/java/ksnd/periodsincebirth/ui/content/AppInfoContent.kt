@@ -1,6 +1,7 @@
 package ksnd.periodsincebirth.ui.content
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -43,13 +44,14 @@ fun AppInfoContent() {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground), // TODO アプリアイコンにする
+                painter = painterResource(id = R.drawable.ic_launcher_monochrome),
                 contentDescription = "convert",
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .padding(all = 16.dp)
                     .size(72.dp)
-                    .clip(CircleShape),
+                    .clip(CircleShape)
+                    .background(color = MaterialTheme.colorScheme.surface),
             )
             Column(
                 modifier = Modifier.padding(vertical = 16.dp),
