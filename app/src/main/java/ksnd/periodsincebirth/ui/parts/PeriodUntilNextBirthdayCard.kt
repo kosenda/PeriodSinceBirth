@@ -48,7 +48,7 @@ fun PeriodUntilNextBirthdayCard(birthday: ZonedDateTime) {
                     .padding(vertical = 4.dp),
                 text = "%d %s".format(
                     getDaysUntilNextBirthday(birthday = birthday),
-                    stringResource(id = R.string.day)
+                    stringResource(id = R.string.day),
                 ),
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold,
