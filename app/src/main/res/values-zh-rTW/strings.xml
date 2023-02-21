@@ -1,0 +1,48 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">自誕生起</string>
+    <string name="birth_date">生日</string>
+    <string name="years">年數</string>
+    <string name="months">月數</string>
+    <string name="days">天數</string>
+    <string name="hours">小時數</string>
+    <string name="minutes">分數</string>
+    <string name="seconds">秒數</string>
+    <string name="approximately">大約</string>
+    <string name="since_birth">從我出生以來…</string>
+    <string name="loading">加載中…</string>
+    <string name="until_next_birthday">直到下一個生日…</string>
+
+    <!-- Input -->
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">天</string>
+    <string name="register">登記</string>
+    <string name="change">更新</string>
+    <string name="register_birth_date">生日登記</string>
+    <string name="welcome">歡迎！</string>
+    <string name="can_be_changed">※ 可以稍後更改</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">主題</string>
+    <string name="dark_mode">黑暗模式</string>
+    <string name="light_mode">燈光模式</string>
+    <string name="auto_mode">自動模式</string>
+    <string name="language_setting">語言</string>
+    <string name="select_language">語言設置</string>
+    <string name="other_settings">其他的</string>
+    <string name="animation_text">動畫文字</string>
+    <string name="font_setting">字體類型</string>
+
+    <!-- Info -->
+    <string name="version_title">應用版本</string>
+    <string name="app_info_title">應用信息</string>
+    <string name="app_name_title">應用名稱</string>
+    <string name="developer_info_title">開發商信息</string>
+    <string name="developer_name_title">開發商名稱</string>
+    <string name="licenses_title">執照</string>
+
+    <!-- Other -->
+    <string name="close">關閉</string>
+
+</resources>

@@ -1,0 +1,48 @@
+<resources>
+    <!-- PeriodSinceBirth -->
+    <string name="app_name">Doğumdan Beri</string>
+    <string name="birth_date">Doğum tarihi</string>
+    <string name="years">Yıllar</string>
+    <string name="months">Aylar</string>
+    <string name="days">Günler</string>
+    <string name="hours">Saatler</string>
+    <string name="minutes">Dakika</string>
+    <string name="seconds">Saniyeler</string>
+    <string name="approximately">Yaklaşık</string>
+    <string name="since_birth">Doğumdan beri …</string>
+    <string name="loading">Yükleniyor…</string>
+    <string name="until_next_birthday">Bir sonraki doğum gününe kadar…</string>
+
+    <!-- Input -->
+    <string name="year">Yıl</string>
+    <string name="month">Ay</string>
+    <string name="day">Gün</string>
+    <string name="register">Kayıt</string>
+    <string name="change">Güncelleme</string>
+    <string name="register_birth_date">Doğum tarihini kaydet</string>
+    <string name="welcome">Hoş geldiniz！</string>
+    <string name="can_be_changed">※ Daha sonra değiştirebilirsiniz</string>
+
+    <!-- Settings -->
+    <string name="theme_setting">Tema</string>
+    <string name="dark_mode">Karanlık mod</string>
+    <string name="light_mode">Işık modu</string>
+    <string name="auto_mode">Otomatik mod</string>
+    <string name="language_setting">Dil</string>
+    <string name="select_language">Dil ayarı</string>
+    <string name="other_settings">Diğer</string>
+    <string name="animation_text">Animasyon metni</string>
+    <string name="font_setting">Yazı Tipi</string>
+
+    <!-- Info -->
+    <string name="version_title">Uygulama sürümü</string>
+    <string name="app_info_title">Uygulama bilgisi</string>
+    <string name="app_name_title">Uygulama adı</string>
+    <string name="developer_info_title">Geliştirici bilgileri</string>
+    <string name="developer_name_title">Geliştirici adı</string>
+    <string name="licenses_title">Lisans</string>
+
+    <!-- Other -->
+    <string name="close">Kapat</string>
+
+</resources>
