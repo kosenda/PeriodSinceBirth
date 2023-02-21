@@ -26,8 +26,10 @@ class SettingMiddleware @Inject constructor(
                     CoroutineScope(ioDispatcher).launch {
                         val selectedTheme = dataStoreRepository.selectedTheme()
                         val useAnimationText = dataStoreRepository.fetchUseAnimationText()
+                        val fontType = dataStoreRepository.fetchFontType()
                         next(SettingAction.SetTheme(selectedTheme))
                         next(SettingAction.SetUseAnimationText(useAnimationText))
+                        next(SettingAction.SetFontType(fontType))
                     }
                 }
                 is SettingAction.ChangeTheme -> {
@@ -38,6 +40,11 @@ class SettingMiddleware @Inject constructor(
                 is SettingAction.SwitchAnimationText -> {
                     CoroutineScope(ioDispatcher).launch {
                         dataStoreRepository.updateUseAnimationText(useAnimation = action.useAnimate)
+                    }
+                }
+                is SettingAction.ChangeFont -> {
+                    CoroutineScope(ioDispatcher).launch {
+                        dataStoreRepository.updateFontType(newFontType = action.fontType)
                     }
                 }
                 else -> {}

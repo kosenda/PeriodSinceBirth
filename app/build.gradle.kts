@@ -126,6 +126,9 @@ dependencies {
 
     // OSS Licenses Gradle Plugin
     implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
+
+    // Google Fonts
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.3.3")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {

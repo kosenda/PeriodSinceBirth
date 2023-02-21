@@ -83,6 +83,7 @@ fun SelectLanguageDialogContent() {
                                 LocaleListCompat.forLanguageTags(locale),
                             )
                             dispatch(SettingAction.SetLocale(locale = locale))
+                            dispatch(SettingAction.CloseSelectLanguageDialog)
                         },
                     )
                 }

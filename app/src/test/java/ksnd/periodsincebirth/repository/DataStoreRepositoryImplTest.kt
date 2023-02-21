@@ -9,6 +9,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import ksnd.periodsincebirth.MainDispatcherRule
 import ksnd.periodsincebirth.Theme
+import ksnd.periodsincebirth.ui.FontType
 import ksnd.periodsincebirth.util.makeBirthday
 import org.junit.Rule
 import org.junit.Test
@@ -123,6 +124,37 @@ class DataStoreRepositoryImplTest {
             assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isTrue()
             dataStoreRepositoryImpl.updateUseAnimationText(useAnimation = false)
             assertThat(dataStoreRepositoryImpl.fetchUseAnimationText()).isFalse()
+        }
+    }
+
+    // ■ fetchFontType / updateFontType
+    @Test
+    fun dataStoreRepository_initialFontType_isDefault() {
+        // 初期値はDefaultであること
+        mainDispatcherRule.testScope.runTest {
+            assertThat(dataStoreRepositoryImpl.fetchFontType()).isEqualTo(FontType.DEFAULT)
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateFontType_isChanged() {
+        // 更新をした後に取得した値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateFontType(newFontType = FontType.PACIFICO)
+            assertThat(dataStoreRepositoryImpl.fetchFontType()).isEqualTo(FontType.PACIFICO)
+        }
+    }
+
+    @Test
+    fun dataStoreRepository_updateFontTypeThreeTimes_isChanged() {
+        // ３回更新し、全てで取得できる値が変わっていること
+        mainDispatcherRule.testScope.runTest {
+            dataStoreRepositoryImpl.updateFontType(newFontType = FontType.HACHI_MARU_POP)
+            assertThat(dataStoreRepositoryImpl.fetchFontType()).isEqualTo(FontType.HACHI_MARU_POP)
+            dataStoreRepositoryImpl.updateFontType(newFontType = FontType.ROBOTO_SLAB)
+            assertThat(dataStoreRepositoryImpl.fetchFontType()).isEqualTo(FontType.ROBOTO_SLAB)
+            dataStoreRepositoryImpl.updateFontType(newFontType = FontType.ROCKN_ROLL_ONE)
+            assertThat(dataStoreRepositoryImpl.fetchFontType()).isEqualTo(FontType.ROCKN_ROLL_ONE)
         }
     }
 }

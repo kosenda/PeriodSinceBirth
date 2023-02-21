@@ -31,6 +31,7 @@
     <string name="select_language">語言設置</string>
     <string name="other_settings">其他的</string>
     <string name="animation_text">動畫文字</string>
+    <string name="font_setting">字體類型</string>
 
     <!-- Info -->
     <string name="version_title">應用版本</string>

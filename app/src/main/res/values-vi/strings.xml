@@ -39,6 +39,7 @@
     <string name="developer_info_title">Thông tin nhà phát triển</string>
     <string name="developer_name_title">Tên nhà phát triển</string>
     <string name="licenses_title">Giấy phép</string>
+    <string name="font_setting">Loại phông chữ</string>
 
     <!-- Other -->
     <string name="close">Đóng</string>

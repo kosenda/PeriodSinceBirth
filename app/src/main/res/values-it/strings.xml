@@ -31,6 +31,7 @@
     <string name="select_language">Impostazione della lingua</string>
     <string name="other_settings">Altro</string>
     <string name="animation_text">Testo dell\'animazione</string>
+    <string name="font_setting">Tipo di font</string>
 
     <!-- Info -->
     <string name="version_title">Versione dell\'app</string>

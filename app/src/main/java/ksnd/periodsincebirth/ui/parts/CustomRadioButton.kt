@@ -33,7 +33,7 @@ import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 fun CustomRadioButton(
     isSelected: Boolean,
     buttonText: String,
-    painter: Painter,
+    painter: Painter? = null,
     onClick: () -> Unit,
 ) {
     Row(
@@ -46,17 +46,19 @@ fun CustomRadioButton(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Spacer(modifier = Modifier.width(16.dp))
-        Image(
-            painter = painter,
-            contentDescription = buttonText,
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.tertiary),
-            contentScale = ContentScale.Fit,
-            modifier = Modifier.size(24.dp),
-        )
+        painter?.let {
+            Image(
+                painter = it,
+                contentDescription = buttonText,
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.tertiary),
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.padding(end = 4.dp).size(24.dp),
+            )
+        }
         Text(
             text = buttonText,
             modifier = Modifier
-                .padding(start = 12.dp)
+                .padding(start = 8.dp)
                 .weight(1f),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

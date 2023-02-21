@@ -31,6 +31,7 @@
     <string name="select_language">言語設定</string>
     <string name="other_settings">その他</string>
     <string name="animation_text">アニメーションテキスト</string>
+    <string name="font_setting">フォント</string>
 
     <!-- Info -->
     <string name="version_title">アプリのバージョン</string>

@@ -18,6 +18,7 @@ import ksnd.periodsincebirth.actions.SettingAction
 import ksnd.periodsincebirth.state.SettingState
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
+import ksnd.periodsincebirth.ui.content.SettingFontContent
 import ksnd.periodsincebirth.ui.content.SettingLanguageContent
 import ksnd.periodsincebirth.ui.content.SettingOtherContent
 import ksnd.periodsincebirth.ui.content.SettingThemeContent
@@ -53,6 +54,7 @@ fun SettingScreen() {
                 isSelectedNum = { theme -> theme == settingState.theme },
             )
             SettingLanguageContent()
+            SettingFontContent()
             SettingOtherContent()
         }
     }

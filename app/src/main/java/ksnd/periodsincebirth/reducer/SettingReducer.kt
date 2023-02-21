@@ -22,6 +22,8 @@ val settingReducer: Reducer<State> =
                     is SettingAction.CloseSelectLanguageDialog ->
                         settingState.copy(openSelectLanguageDialog = false)
                     is SettingAction.SetLocale -> settingState.copy(locale = action.locale)
+                    is SettingAction.SetFontType -> settingState.copy(fontType = action.fontType)
+                    is SettingAction.ChangeFont -> settingState.copy(fontType = action.fontType)
                 },
             )
         }

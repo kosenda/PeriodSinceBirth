@@ -31,6 +31,7 @@
     <string name="select_language">Select language</string>
     <string name="other_settings">Other</string>
     <string name="animation_text">Animation text</string>
+    <string name="font_setting">Font</string>
 
     <!-- Info -->
     <string name="version_title">App Version</string>
@@ -44,7 +45,9 @@
     <string name="close">CLOSE</string>
 
 
-    <!-- Not Translatable -->
+    <!-- ############################### Not Translatable ############################### -->
+
+    <!-- Common -->
     <string name="google_play" translatable="false">Google Play</string>
     <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=ksnd.periodsincebirth</string>
     <string name="github" translatable="false">GitHub</string>

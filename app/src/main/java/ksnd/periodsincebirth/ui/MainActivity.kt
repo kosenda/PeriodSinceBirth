@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
                 LaunchedEffect(Unit) {
                     dispatch(SettingAction.FetchSettings)
                 }
-
                 PeriodSinceBirthTheme(
                     isDarkTheme = when (settingState.theme) {
                         Theme.NIGHT -> true
                         Theme.LIGHT -> false
                         else -> isSystemInDarkTheme()
                     },
+                    fontType = settingState.fontType,
                 ) {
                     NavScreen()
                 }

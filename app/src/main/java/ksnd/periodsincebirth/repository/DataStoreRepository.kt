@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import ksnd.periodsincebirth.PreferencesKey
 import ksnd.periodsincebirth.Theme
+import ksnd.periodsincebirth.ui.FontType
 import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
@@ -20,6 +21,8 @@ interface DataStoreRepository {
     suspend fun selectedTheme(): Theme
     suspend fun fetchUseAnimationText(): Boolean
     suspend fun updateUseAnimationText(useAnimation: Boolean)
+    suspend fun fetchFontType(): FontType
+    suspend fun updateFontType(newFontType: FontType)
 }
 
 class DataStoreRepositoryImpl @Inject constructor(
@@ -91,5 +94,33 @@ class DataStoreRepositoryImpl @Inject constructor(
 
     override suspend fun updateTheme(newTheme: Theme) {
         dataStore.edit { it[PreferencesKey.THEME_NUM] = newTheme.num }
+    }
+
+    override suspend fun fetchFontType(): FontType {
+        val fontType = dataStore
+            .data
+            .catch { exception ->
+                Timber.i(exception)
+                emit(emptyPreferences())
+            }
+            .map { preferences ->
+                preferences[PreferencesKey.FONT_TYPE]
+            }
+            .first()
+        return when (fontType) {
+            FontType.DEFAULT.fontName -> FontType.DEFAULT
+            FontType.ROCKN_ROLL_ONE.fontName -> FontType.ROCKN_ROLL_ONE
+            FontType.ROBOTO_SLAB.fontName -> FontType.ROBOTO_SLAB
+            FontType.PACIFICO.fontName -> FontType.PACIFICO
+            FontType.HACHI_MARU_POP.fontName -> FontType.HACHI_MARU_POP
+            else -> {
+                Timber.e("定義されていないフォント: $fontType")
+                FontType.DEFAULT
+            }
+        }
+    }
+
+    override suspend fun updateFontType(newFontType: FontType) {
+        dataStore.edit { it[PreferencesKey.FONT_TYPE] = newFontType.fontName }
     }
 }

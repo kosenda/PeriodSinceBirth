@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import ksnd.periodsincebirth.ui.FontType
 
 private val LightThemeColors = lightColorScheme()
 private val DarkThemeColors = darkColorScheme()
@@ -17,6 +18,7 @@ private val DarkThemeColors = darkColorScheme()
 fun PeriodSinceBirthTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     isDynamicColor: Boolean = true,
+    fontType: FontType = FontType.DEFAULT,
     content: @Composable () -> Unit,
 ) {
     val dynamicColor = isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
@@ -33,7 +35,7 @@ fun PeriodSinceBirthTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = typography(),
+        typography = typography(fontType = fontType),
         shapes = Shapes,
         content = content,
     )
