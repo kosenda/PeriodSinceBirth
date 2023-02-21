@@ -18,6 +18,7 @@ import ksnd.periodsincebirth.actions.AppAction
 import ksnd.periodsincebirth.ui.NavigationItems
 import ksnd.periodsincebirth.ui.parts.CustomIconButton
 import ksnd.periodsincebirth.ui.parts.PeriodSinceBirthCard
+import ksnd.periodsincebirth.ui.parts.PeriodUntilNextBirthdayCard
 import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import ksnd.periodsincebirth.util.makeBirthday
 import org.reduxkotlin.compose.rememberDispatcher
@@ -52,6 +53,7 @@ fun PeriodSinceBirthContent(birthday: ZonedDateTime) {
                 onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Settings)) },
             )
         }
+        PeriodUntilNextBirthdayCard(birthday = birthday)
         PeriodSinceBirthCard(birthday = birthday)
     }
 }

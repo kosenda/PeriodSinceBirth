@@ -27,16 +27,21 @@ fun untilNow(time: ZonedDateTime, chronoUnit: ChronoUnit): Long {
     return time.until(getNowDate(), chronoUnit)
 }
 
-private fun getNowDate(): ZonedDateTime {
-    val now = ZonedDateTime.now(ZoneId.systemDefault())
-    return makeZonedDateTime(
+fun getDaysUntilNextBirthday(birthday: ZonedDateTime, now: ZonedDateTime = getNowDate()): Int {
+    val thisYearBirthday = makeZonedDateTime(
         year = now.year.toString(),
-        month = now.monthValue.toString(),
-        day = now.dayOfMonth.toString(),
+        month = birthday.monthValue.toString(),
+        day = birthday.dayOfMonth.toString(),
     )
+    val nextBirthdayIsNextYear = now.isAfter(thisYearBirthday)
+    val nextBirthday = when {
+        nextBirthdayIsNextYear -> thisYearBirthday.plusYears(1)
+        else -> thisYearBirthday
+    }
+    return ChronoUnit.DAYS.between(now.toLocalDate(), nextBirthday.toLocalDate()).toInt()
 }
 
-private fun makeZonedDateTime(year: String, month: String, day: String): ZonedDateTime {
+fun makeZonedDateTime(year: String, month: String, day: String): ZonedDateTime {
     return ZonedDateTime.of(
         year.toInt(),
         month.toInt(),
@@ -46,6 +51,15 @@ private fun makeZonedDateTime(year: String, month: String, day: String): ZonedDa
         0,
         0,
         ZoneId.systemDefault(),
+    )
+}
+
+private fun getNowDate(): ZonedDateTime {
+    val now = ZonedDateTime.now(ZoneId.systemDefault())
+    return makeZonedDateTime(
+        year = now.year.toString(),
+        month = now.monthValue.toString(),
+        day = now.dayOfMonth.toString(),
     )
 }
 

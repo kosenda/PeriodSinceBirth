@@ -11,6 +11,7 @@
     <string name="approximately">Approssimativamente</string>
     <string name="since_birth">Dalla nascita …</string>
     <string name="loading">Caricamento…</string>
+    <string name="until_next_birthday">Fino al prossimo compleanno…</string>
 
     <!-- Input -->
     <string name="year">Anno</string>

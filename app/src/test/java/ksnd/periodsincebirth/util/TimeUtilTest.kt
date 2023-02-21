@@ -83,4 +83,28 @@ class TimeUtilTest {
         assertThat(days > months).isTrue()
         assertThat(months > years).isTrue()
     }
+
+    @Test
+    fun untilNextBirthday_nextBirthdayIsYesterday_is364() {
+        // 昨日が誕生日の場合は次の誕生日まで364日であること（この年は閏年でない）
+        val birthday = makeZonedDateTime("2000", "2", "20")
+        val now = makeZonedDateTime("2022", "2", "21")
+        assertThat(getDaysUntilNextBirthday(birthday, now)).isEqualTo(364)
+    }
+
+    @Test
+    fun untilNextBirthday_nextBirthdayIsTomorrow_is1() {
+        // 明日が誕生日の場合は次の誕生日まで1日であること
+        val birthday = makeZonedDateTime("2000", "2", "22")
+        val now = makeZonedDateTime("2022", "2", "21")
+        assertThat(getDaysUntilNextBirthday(birthday, now)).isEqualTo(1)
+    }
+
+    @Test
+    fun untilNextBirthday_birthdayIsToday_is0() {
+        // 今日が誕生日の場合は次の誕生日まで364日であること
+        val birthday = makeZonedDateTime("2000", "2", "21")
+        val now = makeZonedDateTime("2022", "2", "21")
+        assertThat(getDaysUntilNextBirthday(birthday, now)).isEqualTo(0)
+    }
 }

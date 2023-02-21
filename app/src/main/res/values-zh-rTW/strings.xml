@@ -11,6 +11,7 @@
     <string name="approximately">大約</string>
     <string name="since_birth">從我出生以來…</string>
     <string name="loading">加載中…</string>
+    <string name="until_next_birthday">直到下一個生日…</string>
 
     <!-- Input -->
     <string name="year">年</string>

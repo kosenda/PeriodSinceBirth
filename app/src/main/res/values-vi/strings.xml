@@ -11,6 +11,7 @@
     <string name="approximately">xấp xỉ</string>
     <string name="since_birth">Từ khi tôi sinh ra …</string>
     <string name="loading">Đang tải…</string>
+    <string name="until_next_birthday">Cho đến sinh nhật tiếp theo…</string>
 
     <!-- Input -->
     <string name="year">năm</string>

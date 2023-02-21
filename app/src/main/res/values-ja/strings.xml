@@ -11,6 +11,7 @@
     <string name="approximately">おおよそ</string>
     <string name="since_birth">生まれてから …</string>
     <string name="loading">読み込み中…</string>
+    <string name="until_next_birthday">次の誕生日まで…</string>
 
     <!-- Input -->
     <string name="year">年</string>
