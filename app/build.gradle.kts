@@ -129,6 +129,9 @@ dependencies {
 
     // Google Fonts
     implementation("androidx.compose.ui:ui-text-google-fonts:1.3.3")
+
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.0")
 }
 
 tasks.create<JavaExec>("ktlintCheck") {
