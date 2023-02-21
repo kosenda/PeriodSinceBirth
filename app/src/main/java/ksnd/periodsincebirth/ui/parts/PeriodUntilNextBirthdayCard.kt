@@ -9,23 +9,20 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ksnd.periodsincebirth.R
-import ksnd.periodsincebirth.state.SettingState
-import ksnd.periodsincebirth.state.State
+import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import ksnd.periodsincebirth.util.getDaysUntilNextBirthday
-import org.reduxkotlin.compose.selectState
+import ksnd.periodsincebirth.util.makeBirthday
 import java.time.ZonedDateTime
 
 @Composable
 fun PeriodUntilNextBirthdayCard(birthday: ZonedDateTime) {
-    val settingState by selectState<State, SettingState> { settingState }
-    // TODO Animationつける
     Card(
         modifier = Modifier
             .padding(top = 16.dp)
@@ -46,7 +43,9 @@ fun PeriodUntilNextBirthdayCard(birthday: ZonedDateTime) {
                 style = MaterialTheme.typography.bodyMedium,
             )
             Text(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
                 text = "%d %s".format(
                     getDaysUntilNextBirthday(birthday = birthday),
                     stringResource(id = R.string.day)
@@ -57,5 +56,21 @@ fun PeriodUntilNextBirthdayCard(birthday: ZonedDateTime) {
                 style = MaterialTheme.typography.headlineSmall,
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewPeriodUntilNextBirthdayCard_Light() {
+    PeriodSinceBirthTheme(isDarkTheme = false) {
+        PeriodUntilNextBirthdayCard(birthday = makeBirthday("2000", "1", "1")!!)
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewPeriodUntilNextBirthdayCard_Dark() {
+    PeriodSinceBirthTheme(isDarkTheme = true) {
+        PeriodUntilNextBirthdayCard(birthday = makeBirthday("2000", "1", "1")!!)
     }
 }

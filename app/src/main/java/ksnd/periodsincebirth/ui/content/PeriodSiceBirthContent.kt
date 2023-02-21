@@ -53,8 +53,8 @@ fun PeriodSinceBirthContent(birthday: ZonedDateTime) {
                 onClick = { dispatch(AppAction.TransitionScreen(NavigationItems.Settings)) },
             )
         }
-        PeriodUntilNextBirthdayCard(birthday = birthday)
         PeriodSinceBirthCard(birthday = birthday)
+        PeriodUntilNextBirthdayCard(birthday = birthday)
     }
 }
 
