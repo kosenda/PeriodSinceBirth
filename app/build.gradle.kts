@@ -98,7 +98,7 @@ dependencies {
     implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.44.2")
+    implementation("com.google.dagger:hilt-android:2.45")
     kapt("com.google.dagger:hilt-compiler:2.44.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
@@ -119,7 +119,7 @@ dependencies {
 
     // Robolectric environment
     testImplementation("androidx.test:core:1.5.0")
-    testImplementation("org.robolectric:robolectric:4.9.1")
+    testImplementation("org.robolectric:robolectric:4.9.2")
 
     // Test Coroutine
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
