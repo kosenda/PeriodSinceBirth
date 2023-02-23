@@ -1,9 +1,24 @@
-# 🐨 概要
+# 🐮　アプリ名「 Period Since Birth 」
+- 英語表記: Period Since Birth
+- 日本語表記: 生まれてから
+- トルコ語表記: Doğumdan Beri
+- 中国語（繁体字）表記: 自誕生起
+- ベトナム語表記: Từ khi sinh ra
+- イタリア語表記: Dalla nascita
+
+# 🐨　概要
 誕生日からどれくらいの期間が経っているか知ることができるシンプルなアプリです。  
 ReduxとJetpack Composeを使用している点が特徴だと思います。  
-アプリに関しては、Google Playで公開する予定です。  
+アプリに関しては、Google Playで公開する予定です。 
 
-# 🐶 代表的なライブラリ
+# 🐯　アプリの機能
+- 生まれてからの期間を年/月/日/時/分/秒でそれぞれ表示します
+- 次の誕生日までの日数を表示します
+- テーマの変更ができます(ダークモード/ライトモード/自動モード)
+- フォントの変更ができます(Google Fonts)
+- 言語の変更ができます(日本語、英語、トルコ語、中国語（繁体字）、ベトナム語、イタリア語)
+
+# 🐶　代表的なライブラリ
 |名前|簡単な説明|
 |:--|:--|
 |redux-kotlin-compose|ReduxとJetpackComposeを合わせてアプリを作るためのライブラリ|
@@ -17,7 +32,7 @@ ReduxとJetpack Composeを使用している点が特徴だと思います。
 |googlefonts|ダウンロード可能なGoogleフォント|
 |play-services-oss-licenses|OSSライセンス|
 
-# 🐱 パッケージ
+# 🐱　パッケージ
 |パッケージ名|簡単な説明|
 |:--|:--|
 |action|ReduxのActionを格納|
@@ -47,7 +62,7 @@ ReduxとJetpack Composeを使用している点が特徴だと思います。
 |<img width="320" alt="input_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823680-51eaebdf-2ab4-4325-9b1d-d8229475f172.PNG">|<img width="320" alt="main_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823685-fa8942f1-afa8-487d-9e32-d036fc6f7527.PNG">|<img width="320" alt="setting_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823687-68e829e0-62d1-4119-9067-9797fc4553a9.PNG">|<img width="320" alt="info_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823690-46c04803-4d19-4d9e-8054-62dd6039c49d.PNG">|
 </details>
 
-# 🐰 主な参考サイト
+# 🐰　主な参考サイト
 - [redux-kotlin-compose](https://github.com/reduxkotlin/redux-kotlin-compose)
 - [ReduxKotlin](https://reduxkotlin.org)
 - [Redux Essentials, Part 1: Redux Overview and Concepts](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)  
