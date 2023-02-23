@@ -1,9 +1,9 @@
-# 概要
+# 🐤 概要
 誕生日からどれくらいの期間が経っているか知ることができるシンプルなアプリです。  
 ReduxとJetpack Composeを使用している点が特徴だと思います。  
 アプリに関しては、Google Playで公開する予定です。  
 
-# 代表的なライブラリ
+# 🐶 代表的なライブラリ
 |名前|簡単な説明|
 |:--|:--|
 |redux-kotlin-compose|ReduxとJetpackComposeを合わせてアプリを作るためのライブラリ|
@@ -17,7 +17,7 @@ ReduxとJetpack Composeを使用している点が特徴だと思います。
 |googlefonts|ダウンロード可能なGoogleフォント|
 |play-services-oss-licenses|OSSライセンス|
 
-# パッケージの簡単な説明
+# 🐱 パッケージの簡単な説明
 |パッケージ名|簡単な説明|
 |:--|:--|
 |action|ReduxのActionを格納|
@@ -30,7 +30,7 @@ ReduxとJetpack Composeを使用している点が特徴だと思います。
 |ui|画面に関する部品を格納|
 |util|日時に関する処理を行うTimeUtilを格納|
 
-# 主な参考サイト
+# 🐰 主な参考サイト
 - [redux-kotlin-compose](https://github.com/reduxkotlin/redux-kotlin-compose)
 - [ReduxKotlin](https://reduxkotlin.org)
 - [Redux Essentials, Part 1: Redux Overview and Concepts](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)  
