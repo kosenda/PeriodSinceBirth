@@ -2,7 +2,8 @@
 # 🐨 概要
 誕生日からどれくらいの期間が経っているか知ることができるシンプルなアプリです。  
 ReduxとJetpack Composeを使用している点が特徴だと思います。  
-アプリはGoogle Playにリリース申請中です。
+アプリはGoogle Playでインストールできます。  
+https://play.google.com/store/apps/details?id=ksnd.periodsincebirth
 
 # 🐮 アプリ名
 |言語|表記名|
