@@ -27,13 +27,6 @@ import org.reduxkotlin.compose.selectState
 fun SettingFontContent() {
     val settingState by selectState<State, SettingState> { settingState }
     val dispatch = rememberDispatcher()
-    val fonts = listOf(
-        FontType.DEFAULT,
-        FontType.ROCKN_ROLL_ONE,
-        FontType.ROBOTO_SLAB,
-        FontType.PACIFICO,
-        FontType.HACHI_MARU_POP,
-    )
 
     TitleCard(
         text = stringResource(id = R.string.font_setting),
@@ -45,7 +38,7 @@ fun SettingFontContent() {
         ),
         modifier = Modifier.padding(vertical = 8.dp),
     ) {
-        fonts.map { fontType ->
+        FontType.values().map { fontType ->
             CustomRadioButton(
                 isSelected = fontType == settingState.fontType,
                 buttonText = fontType.fontName,

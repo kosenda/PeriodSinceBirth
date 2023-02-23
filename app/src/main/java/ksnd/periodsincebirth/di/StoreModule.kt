@@ -5,7 +5,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
-import ksnd.periodsincebirth.Theme
 import ksnd.periodsincebirth.middleware.AppMiddleware
 import ksnd.periodsincebirth.middleware.InputDateMiddleware
 import ksnd.periodsincebirth.middleware.SettingMiddleware
@@ -13,11 +12,7 @@ import ksnd.periodsincebirth.reducer.appReducer
 import ksnd.periodsincebirth.reducer.inputBirthdayReducer
 import ksnd.periodsincebirth.reducer.settingReducer
 import ksnd.periodsincebirth.repository.DataStoreRepositoryImpl
-import ksnd.periodsincebirth.state.AppState
-import ksnd.periodsincebirth.state.InputDateState
-import ksnd.periodsincebirth.state.SettingState
 import ksnd.periodsincebirth.state.State
-import ksnd.periodsincebirth.ui.NavigationItems
 import org.reduxkotlin.Store
 import org.reduxkotlin.applyMiddleware
 import org.reduxkotlin.combineReducers
@@ -39,11 +34,7 @@ object StoreModule {
                 inputBirthdayReducer,
                 settingReducer,
             ),
-            preloadedState = State(
-                appState = AppState(birthday = null, navState = NavigationItems.PeriodSinceBirth),
-                inputDateState = InputDateState(year = "", month = "", day = ""),
-                settingState = SettingState(theme = Theme.AUTO, locale = ""),
-            ),
+            preloadedState = State(),
             enhancer = applyMiddleware(
                 AppMiddleware(
                     ioDispatcher = ioDispatcher,
