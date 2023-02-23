@@ -50,19 +50,14 @@ ReduxとJetpack Composeを使用している点が特徴だと思います。
 
 # 🐹 スクリーンショット
 <details>
-<summary>ライトモード</summary>
+<summary>イメージ</summary>
 
-|入力画面|メイン画面|設定画面|インフォ画面|
-|:-:|:-:|:-:|:-:|
-|<img width="320" alt="input_screen_light" src="https://user-images.githubusercontent.com/60963155/220823677-af14bd35-5b63-456c-89c3-5584d3249628.PNG">|<img width="320" alt="main_screen_light" src="https://user-images.githubusercontent.com/60963155/220823683-1d30bc93-d646-4217-a918-0a59cd357d7a.PNG">|<img width="320" alt="setting_screen_light" src="https://user-images.githubusercontent.com/60963155/220823686-d3d5de92-b9d2-493b-b98b-6c06e3fcdd64.PNG">|<img width="320" alt="info_screen_light" src="https://user-images.githubusercontent.com/60963155/220823689-bfc98257-7e26-4820-b9b3-e1147e194c7a.PNG">|
-</details>
-<details>
- 
-<summary>ダークモード</summary>
-
-|入力画面|メイン画面|設定画面|インフォ画面|
-|:-:|:-:|:-:|:-:|
-|<img width="320" alt="input_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823680-51eaebdf-2ab4-4325-9b1d-d8229475f172.PNG">|<img width="320" alt="main_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823685-fa8942f1-afa8-487d-9e32-d036fc6f7527.PNG">|<img width="320" alt="setting_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823687-68e829e0-62d1-4119-9067-9797fc4553a9.PNG">|<img width="320" alt="info_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823690-46c04803-4d19-4d9e-8054-62dd6039c49d.PNG">|
+|画面名|ライトモード|ダークモード|
+|:-:|:-:|:-:|
+|入力画面|<img width="320" alt="input_screen_light" src="https://user-images.githubusercontent.com/60963155/220823677-af14bd35-5b63-456c-89c3-5584d3249628.PNG">|<img width="320" alt="input_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823680-51eaebdf-2ab4-4325-9b1d-d8229475f172.PNG">|
+|メイン画面|<img width="320" alt="main_screen_light" src="https://user-images.githubusercontent.com/60963155/220823683-1d30bc93-d646-4217-a918-0a59cd357d7a.PNG">|<img width="320" alt="main_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823685-fa8942f1-afa8-487d-9e32-d036fc6f7527.PNG">|
+|設定画面|<img width="320" alt="setting_screen_light" src="https://user-images.githubusercontent.com/60963155/220823686-d3d5de92-b9d2-493b-b98b-6c06e3fcdd64.PNG">|<img width="320" alt="setting_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823687-68e829e0-62d1-4119-9067-9797fc4553a9.PNG">|
+|インフォ画面|<img width="320" alt="info_screen_light" src="https://user-images.githubusercontent.com/60963155/220823689-bfc98257-7e26-4820-b9b3-e1147e194c7a.PNG">|<img width="320" alt="info_screen_dark" src="https://user-images.githubusercontent.com/60963155/220823690-46c04803-4d19-4d9e-8054-62dd6039c49d.PNG">|
 </details>
 
 # 🐰 主な参考サイト
