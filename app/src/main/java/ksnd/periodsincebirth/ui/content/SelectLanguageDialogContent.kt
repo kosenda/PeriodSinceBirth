@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,7 +33,6 @@ import ksnd.periodsincebirth.ui.theme.PeriodSinceBirthTheme
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SelectLanguageDialogContent() {
     val dispatch = rememberDispatcher()
