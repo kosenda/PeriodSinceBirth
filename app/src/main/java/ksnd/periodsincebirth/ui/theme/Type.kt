@@ -11,14 +11,12 @@ import androidx.compose.ui.unit.sp
 import ksnd.periodsincebirth.R
 import ksnd.periodsincebirth.ui.FontType
 
-@OptIn(ExperimentalTextApi::class)
 val provider = GoogleFont.Provider(
     providerAuthority = "com.google.android.gms.fonts",
     providerPackage = "com.google.android.gms",
     certificates = R.array.com_google_android_gms_fonts_certs,
 )
 
-@OptIn(ExperimentalTextApi::class)
 fun typography(fontType: FontType): Typography {
     val fontFamily = when (fontType) {
         FontType.DEFAULT -> FontFamily.Default

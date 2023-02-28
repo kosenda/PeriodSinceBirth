@@ -92,14 +92,14 @@ dependencies {
     }
 
     // Material3
-    implementation("androidx.compose.material3:material3:1.1.0-alpha06")
+    implementation("androidx.compose.material3:material3:1.1.0-alpha07")
 
     // Redux-Kotlin
     implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.45")
-    kapt("com.google.dagger:hilt-compiler:2.44.2")
+    kapt("com.google.dagger:hilt-compiler:2.45")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     // Timber
