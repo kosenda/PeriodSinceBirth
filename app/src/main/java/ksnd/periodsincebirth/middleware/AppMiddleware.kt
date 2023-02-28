@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ksnd.periodsincebirth.actions.AppAction
+import ksnd.periodsincebirth.di.IODispatcher
 import ksnd.periodsincebirth.repository.DataStoreRepository
 import ksnd.periodsincebirth.state.State
 import ksnd.periodsincebirth.ui.NavigationItems
@@ -15,7 +16,7 @@ import java.time.ZonedDateTime
 import javax.inject.Inject
 
 class AppMiddleware @Inject constructor(
-    private val ioDispatcher: CoroutineDispatcher,
+    @IODispatcher private val ioDispatcher: CoroutineDispatcher,
     private val dataStoreRepository: DataStoreRepository,
 ) : Middleware<State> {
 

@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ksnd.periodsincebirth.actions.SettingAction
+import ksnd.periodsincebirth.di.IODispatcher
 import ksnd.periodsincebirth.repository.DataStoreRepository
 import ksnd.periodsincebirth.state.State
 import org.reduxkotlin.Dispatcher
@@ -12,7 +13,7 @@ import org.reduxkotlin.TypedStore
 import javax.inject.Inject
 
 class SettingMiddleware @Inject constructor(
-    private val ioDispatcher: CoroutineDispatcher,
+    @IODispatcher private val ioDispatcher: CoroutineDispatcher,
     private val dataStoreRepository: DataStoreRepository,
 ) : Middleware<State> {
 
