@@ -35,7 +35,7 @@ fun CustomOutlinedTextField(
         value = text,
         textStyle = MaterialTheme.typography.bodyLarge,
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            textColor = MaterialTheme.colorScheme.primary,
+            disabledTextColor = MaterialTheme.colorScheme.primary,
         ),
         keyboardActions = KeyboardActions { focusManager.clearFocus() },
         keyboardOptions = KeyboardOptions(
